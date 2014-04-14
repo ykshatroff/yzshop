@@ -1,0 +1,13 @@
+
+{% load i18n %}
+{% load yzadmin_tags %}
+    <form action="{% admin_url 'product' 'set_property_value' item.id %}?property={{ property.id }}"
+            class="yzadmin-setup"
+            title="{% trans 'set property value' %}"
+            method="POST">
+        <div>{% trans 'Product' %}: <b>{{ item.name }}</b></div>
+        <div>{% trans 'Property' %}: <b>{{ property.name }}</b></div>
+        {% include "yzadmin/form.html" %}
+        <button>OK</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>

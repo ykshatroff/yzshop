@@ -1,0 +1,13 @@
+<ul>
+{% for menuitem in menuitems %}
+    <li><a name="{{ menuitem.name }}">{{ menuitem.title }}</a>
+    {% if menuitem.items %}
+        <ul>
+        {% for menuitem0 in menuitem.get_items %}
+            <li><a href="{{ menuitem0.get_absolute_url }}">{{ menuitem0.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </li>
+{% endfor %}
+</ul>

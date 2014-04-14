@@ -1,0 +1,24 @@
+{% extends "yzadmin/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Add Item' %} : {{ model_name }} : YzAdmin : {{ SHOP.get_meta_title }}{% endblock %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block head_script %}
+{% endblock %}
+
+
+{% block section %}{{ model_name }}-add{% endblock %}
+
+{% block content_header_h1 %}
+{% trans 'Add Item' %}: {{ model_title }}
+{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% include "yzadmin/form.html" %}
+        <button>OK</button>
+    </form>
+{% endblock %}

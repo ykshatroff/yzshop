@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-26 16:24+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: forms.py:21 forms.py:94
+msgid "country code"
+msgstr "код страны"
+
+#: forms.py:23 forms.py:96
+msgid "region code"
+msgstr "код региона"
+
+#: forms.py:25 forms.py:98
+msgid "phone number"
+msgstr "номер телефона"
+
+#: forms.py:27
+msgid "Please enter the phone number up to 10 digits"
+msgstr "Пожалуйста, введите номер телефона до 10 цифр"
+
+#: forms.py:91
+msgid "country code / region code / phone number"
+msgstr "код страны / код региона / номер телефона"
+
+#: forms.py:100
+msgid "up to 10 digits"
+msgstr "до 10 цифр"
+
+#: forms.py:111
+msgid "Invalid count of values for a phone"
+msgstr "Неверные значения компонентов номера телефона"
+
+#: forms.py:122
+msgid "Invalid value for a phone"
+msgstr "Недопустимый номер телефона"
+
+#: forms.py:125
+msgid "Required field"
+msgstr "Обязательное поле"
+
+#: forms.py:127
+msgid "Empty phone number"
+msgstr "Не заполнен номер телефона"
+
+#: forms.py:141 forms.py:143
+msgid "Invalid phone number"
+msgstr "Недопустимый номер телефона"
+
+#: forms.py:162 forms.py:200 forms.py:269 models.py:17 models.py:86
+msgid "e-mail"
+msgstr ""
+
+#: forms.py:163 forms.py:201 forms.py:239 forms.py:270 models.py:18
+#: models.py:87
+msgid "phone"
+msgstr "телефон"
+
+#: forms.py:164 forms.py:203
+msgid "password"
+msgstr "пароль"
+
+#: forms.py:175
+msgid "One of fields username or phone is required"
+msgstr "Заполните одно из полей: имя пользователя или номер телефона"
+
+#: forms.py:187
+msgid "Invalid username or password"
+msgstr "Неверное имя пользователя или пароль"
+
+#: forms.py:196 forms.py:265
+msgid "your full name"
+msgstr "ваше полное имя"
+
+#: forms.py:196 forms.py:265
+msgid "Example: John Fitzgerald Smith"
+msgstr "Например: Иван Петрович Сидоров"
+
+#: forms.py:198 forms.py:267
+msgid "your company name"
+msgstr "Название вашей организации"
+
+#: forms.py:198 forms.py:267
+msgid "Example: Bananaland LLC"
+msgstr "Например: ООО Лучшая компания"
+
+#: forms.py:201
+msgid "Example: +44 012345678"
+msgstr "Например: +7 890 1234567"
+
+#: forms.py:205
+msgid "confirm password"
+msgstr "подтвердите пароль"
+
+#: forms.py:214
+msgid "The two passwords do not match."
+msgstr "Введённые пароли не совпадают"
+
+#: forms.py:236 models.py:23
+msgid "country"
+msgstr "страна"
+
+#: models.py:15 models.py:84
+msgid "name"
+msgstr ""
+
+#: models.py:16 models.py:85
+msgid "company name"
+msgstr "организация"
+
+#: models.py:19 models.py:28 models.py:47
+msgid "address"
+msgstr "адрес"
+
+#: models.py:21
+msgid "town"
+msgstr "город, населённый пункт"
+
+#: models.py:22
+msgid "province"
+msgstr "провинция"
+
+#: models.py:24
+msgid "zip code"
+msgstr "почтовый индекс"
+
+#: models.py:29 models.py:48
+msgid "addresses"
+msgstr "адреса"
+
+#: models.py:41 models.py:96
+msgid "customer"
+msgstr "клиент"
+
+#: models.py:82
+msgid "user"
+msgstr "пользователь"
+
+#: models.py:88
+msgid "primary address"
+msgstr "первичный адрес"
+
+#: models.py:91
+msgid "date created"
+msgstr "дата создания"
+
+#: models.py:97
+msgid "customers"
+msgstr "клиенты"

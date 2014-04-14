@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-03 18:13+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: dispatchers.py:44
+msgid "Generic exception"
+msgstr "Общая ошибка"
+
+#: dispatchers.py:51
+#, python-format
+msgid "No such view \"%(view)s\""
+msgstr "Не найден раздел \"%(view)s\""
+
+#: dispatchers.py:61
+#, python-format
+msgid "No such item \"%(item_id)s\""
+msgstr "Не найден объект с номером \"%(item_id)s\""
+
+#: dispatchers.py:71
+#, python-format
+msgid "Invalid value for parameter \"%(param)s\""
+msgstr "Неверное значение параметра \"%(param)s\""
+
+#: dispatchers.py:164 dispatchers.py:170
+msgid "Item saved successfully"
+msgstr "Объект успешно сохранён"
+
+#: dispatchers.py:165
+msgid "Item added successfully"
+msgstr "Объект успешно добавлен"
+
+#: dispatchers.py:166 templates/yzadmin/defaults/item_deleted-ajax.html:6
+#: templates/yzadmin/defaults/item_deleted.html:5
+#: templates/yzadmin/defaults/item_deleted.html:19
+msgid "Item deleted"
+msgstr "Объект удалён"
+
+#: dispatchers.py:167
+msgid "Data updated"
+msgstr "Данные обновлены"
+
+#: dispatchers.py:168
+msgid "Errors occurred"
+msgstr "Произошла ошибка"
+
+#: menu.py:50
+msgid "Shop"
+msgstr "Магазин"
+
+#: menu.py:51
+msgid "Catalog"
+msgstr "Каталог"
+
+#: menu.py:52
+msgid "Content"
+msgstr "Контент"
+
+#: menu.py:53
+msgid "Orders"
+msgstr "Заказы"
+
+#: menu.py:54
+msgid "Other"
+msgstr "Разное"
+
+#: models.py:7
+msgid "image"
+msgstr "изображение"
+
+#: models.py:10 templates/yzadmin/defaults/images-ajax.html:11
+msgid "title"
+msgstr "заголовок"
+
+#: models.py:12
+msgid "height"
+msgstr "высота"
+
+#: models.py:13
+msgid "width"
+msgstr "ширина"
+
+#: models.py:25
+msgid "uploaded image"
+msgstr "загруженное изображение"
+
+#: models.py:26
+msgid "uploaded images"
+msgstr "загруженные изображения"
+
+#: templates/yzadmin/actions-menu.html:11
+#: templates/yzadmin/defaults/add.html:4
+#: templates/yzadmin/defaults/add.html:16
+msgid "Add Item"
+msgstr "Добавить объект"
+
+#: templates/yzadmin/actions-menu.html:17
+msgid "Delete Item"
+msgstr "Удалить объект"
+
+#: templates/yzadmin/base.html:45
+msgid "Welcome,"
+msgstr "Добро пожаловать,"
+
+#: templates/yzadmin/base.html:52
+msgid "Logout"
+msgstr "Выход"
+
+#: templates/yzadmin/base.html:53
+msgid "Last login"
+msgstr "Последний вход"
+
+#: templates/yzadmin/base.html:54
+msgid "Last refresh"
+msgstr "Последнее обновление"
+
+#: templates/yzadmin/base.html:56
+msgid "Login"
+msgstr "Вход"
+
+#: templates/yzadmin/base.html:86
+msgid "Powered by"
+msgstr "Работает на"
+
+#: templates/yzadmin/form.html:8
+msgid "The form contains invalid data"
+msgstr "Форма заполнена неверно"
+
+#: templates/yzadmin/index.html:14
+msgid "Welcome to Shop Administration!"
+msgstr "Добро пожаловать в управление магазином!"
+
+#: templates/yzadmin/index.html:18
+msgid "Instructions"
+msgstr "Инструкции"
+
+#: templates/yzadmin/page-block.html:3
+msgid "Pages"
+msgstr "Страницы"
+
+#: templates/yzadmin/page-nav.html:11 templates/yzadmin/page-nav.html.py:12
+msgid "First"
+msgstr "Первая"
+
+#: templates/yzadmin/page-nav.html:16 templates/yzadmin/page-nav.html.py:17
+msgid "Previous"
+msgstr "Предыдущая"
+
+#: templates/yzadmin/page-nav.html:22
+msgid "of"
+msgstr "из"
+
+#: templates/yzadmin/page-nav.html:30 templates/yzadmin/page-nav.html.py:31
+msgid "Next"
+msgstr "Следующая"
+
+#: templates/yzadmin/page-nav.html:33 templates/yzadmin/page-nav.html.py:34
+msgid "Last"
+msgstr "Последняя"
+
+#: templates/yzadmin/defaults/add-ajax.html:6
+#: templates/yzadmin/defaults/copy-ajax.html:6
+#: templates/yzadmin/defaults/delete-ajax.html:10
+#: templates/yzadmin/defaults/delete_image-ajax.html:7
+#: templates/yzadmin/defaults/edit_image-ajax.html:12
+#: templates/yzadmin/uploadedimage/upload.html:33
+msgid "OK"
+msgstr ""
+
+#: templates/yzadmin/defaults/add-ajax.html:7
+#: templates/yzadmin/defaults/copy-ajax.html:7
+#: templates/yzadmin/defaults/delete-ajax.html:11
+#: templates/yzadmin/defaults/delete_image-ajax.html:8
+#: templates/yzadmin/defaults/edit_image-ajax.html:13
+#: templates/yzadmin/uploadedimage/upload.html:34
+msgid "Close"
+msgstr "Закрыть"
+
+#: templates/yzadmin/defaults/delete-ajax.html:5
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/yzadmin/defaults/delete-ajax.html:7
+msgid "Are you sure you want to delete this item?"
+msgstr "Подтвердите, пожалуйста, удаление этого объекта"
+
+#: templates/yzadmin/defaults/delete_image-ajax.html:5
+msgid "Are you sure you want to delete this image?"
+msgstr "Подтвердите, пожалуйста, удаление этого изображения"
+
+#: templates/yzadmin/defaults/error-ajax.html:4
+msgid "Error"
+msgstr "Ошибка"
+
+#: templates/yzadmin/defaults/error.html:14
+msgid "Error!"
+msgstr "Ошибка!"
+
+#: templates/yzadmin/defaults/error.html:19
+msgid "Error description:"
+msgstr "Описание ошибки:"
+
+#: templates/yzadmin/defaults/images-ajax.html:9
+msgid "position"
+msgstr "позиция"
+
+#: templates/yzadmin/defaults/images-ajax.html:22
+msgid "full size"
+msgstr "полный размер"
+
+#: templates/yzadmin/defaults/images-ajax.html:33
+msgid "delete image"
+msgstr "Удалить изображение"
+
+#: templates/yzadmin/defaults/images-ajax.html:39
+msgid "Add Image"
+msgstr "Добавить изображение"
+
+#: templates/yzadmin/defaults/search.html:5
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/yzadmin/defaults/search.html:14
+msgid "Search Results"
+msgstr "Результаты поиска"
+
+#: templates/yzadmin/defaults/search.html:20
+msgid "You looked for"
+msgstr "Вы искали"
+
+#: templates/yzadmin/uploadedimage/upload.html:4
+msgid "Upload Image"
+msgstr "Загрузить изображение"
+
+#~ msgid "Add Subcategory"
+#~ msgstr "Добавить подкатегорию"
+
+#~ msgid "Add category"
+#~ msgstr "Добавить категорию"
+
+#~ msgid "Parent category"
+#~ msgstr "Родительская категория"
+
+#~ msgid "The category will be added to top level"
+#~ msgstr "Категория будет добавлена в верхний уровень"
+
+#~ msgid "name"
+#~ msgstr "название"
+
+#~ msgid "active"
+#~ msgstr "активен"
+
+#~ msgid "Add Variant"
+#~ msgstr "Добавить вариант"
+
+#~ msgid "Add Product"
+#~ msgstr "Добавить товар"
+
+#~ msgid "Category"
+#~ msgstr "Категория"
+
+#~ msgid "Add Product Variant"
+#~ msgstr "Добавить вариант товара"
+
+#~ msgid "Product"
+#~ msgstr "Товар"
+
+#~ msgid "click to deselect"
+#~ msgstr "Нажмите, чтобы снять выбор"
+
+#~ msgid "click to select"
+#~ msgstr "Нажмите, чтобы выбрать"
+
+#~ msgid "Assigned properties"
+#~ msgstr "Назначенные свойства"
+
+#~ msgid "Choose properties to assign"
+#~ msgstr "Выберите свойства, чтобы назначить"
+
+#~ msgid "Reset"
+#~ msgstr "Сброс"
+
+#~ msgid "SKU"
+#~ msgstr "артикул"
+
+#~ msgid "price"
+#~ msgstr "цена"
+
+#~ msgid "is_default"
+#~ msgstr "по умолчанию"
+
+#~ msgid "Edit Variant"
+#~ msgstr "Редактировать вариант"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid "No"
+#~ msgstr "Нет"
+
+#~ msgid "Set as default"
+#~ msgstr "установить по умолчанию"
+
+#~ msgid "Add product variant"
+#~ msgstr "Добавить вариант товара"
+
+#~ msgid "Property"
+#~ msgstr "Свойство"
+
+#~ msgid "property"
+#~ msgstr "свойство"
+
+#~ msgid "Change"
+#~ msgstr "Изменить"
+
+#~ msgid "Not assigned"
+#~ msgstr "Не назначено"
+
+#~ msgid "Assign"
+#~ msgstr "Назначить"
+
+#~ msgid "Product has no assigned properties"
+#~ msgstr "У товара нет назначенных свойств"
+
+#~ msgid "Manage product properties"
+#~ msgstr "Управление свойствами товара"
+
+#~ msgid "No."
+#~ msgstr "N"
+
+#~ msgid "Edit"
+#~ msgstr "Редактировать"
+
+#~ msgid "Remove"
+#~ msgstr "Удалить"
+
+#~ msgid "Add option"
+#~ msgstr "Добавить значение"

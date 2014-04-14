@@ -1,0 +1,382 @@
+# -*- coding: utf-8 -*-
+from django.db.models import Model
+from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
+from django.utils.http import urlquote
+
+from yz.cache.managers import CachingManager
+from . import settings
+
+class CategoryManager(CachingManager):
+
+    def get_all_categories(self, active=True):
+        """
+        get all categories in a hierarchical tree
+        """
+        cache_key = self._make_cache_key("all", "active", active)
+        tree = self._cache_get(cache_key)
+        if tree is None:
+            if active:
+                # active=False doesn't make sense
+                values = self.filter(active=True)
+            else:
+                values = self.all()
+            tree_all = {}
+            tree = []
+            for cat in values:
+                cat.subcategories = []
+                tree_all[cat.id] = cat
+            for cat in values:
+                parent_id = cat.parent_id
+                if parent_id:
+                    try:
+                        tree_all[parent_id].subcategories.append(cat)
+                    except KeyError:
+                        # parent category may be inactive
+                        pass
+                else:
+                    tree.append(cat)
+            self._cache_set(cache_key, tree)
+        return tree
+
+    def get_top_categories(self, active=True):
+        """
+        get the categories whose parent category is none
+        """
+        cache_key = self._make_cache_key("top_categories",
+                "active", active)
+        top_cats = self._cache_get(cache_key)
+        if top_cats is None:
+            top_cats = self.filter(parent=None)
+            if active:
+                top_cats = top_cats.filter(active=True)
+            self._cache_set(cache_key, top_cats)
+        return top_cats
+
+    def get_children(self, category, active=True):
+        """
+        get the child categories for category
+        """
+        cache_key = self._make_cache_key("children_of", category.id,
+                "active", active)
+        children = self._cache_get(cache_key)
+        if children is None:
+            children = self.filter(parent=category)
+            if active:
+                children = children.filter(active=True)
+            self._cache_set(cache_key, children)
+        return children
+
+
+    def get_all_subcategories(self, category, active=True, ids_only=False):
+        """
+        get all categories in a hierarchical tree
+        Arguments:
+            ids_only: return only IDs of found categories in the list
+        """
+        cache_key = self._make_cache_key("subcategories", category.id,
+                                         "active", active,
+                                         "ids_only", ids_only)
+        result = self._cache_get(cache_key)
+        if result is None:
+            # first-level children can be taken from cache
+            result = []
+            tmp_result = self.filter(parent=category)
+            if active:
+                tmp_result = tmp_result.filter(active=True)
+            if ids_only:
+                tmp_result = tmp_result.values_list('id')
+            while tmp_result:
+                result.extend(tmp_result)
+                # find children of previous level
+                tmp_result = self.filter(parent__in=tmp_result)
+                if active:
+                    tmp_result = tmp_result.filter(active=True)
+                if ids_only:
+                    tmp_result = tmp_result.values_list('id')
+            self._cache_set(cache_key, result)
+        return result
+
+    def get_ancestors(self, category):
+        """
+        Get all ancestors of the category, including itself
+        """
+        cache_key = self._make_cache_key("ancestors_of", category.id)
+        ancestors = self._cache_get(cache_key)
+        if ancestors is None:
+            ancestors = [category]
+            while category.parent is not None:
+                category = category.parent
+                ancestors.append(category)
+            ancestors.reverse()
+            self._cache_set(cache_key, ancestors)
+        return ancestors
+
+    def get_categories_for_product(self, product, active=True):
+        """
+        The list of categories which the product belongs to
+        """
+        cache_key = self._make_cache_key("product", product.id, 'active', active)
+        categories = self._cache_get(cache_key)
+        if categories is None:
+            categories = self.filter(products__in=[product])
+            if active:
+                categories = categories.filter(active=True)
+            self._cache_set(cache_key, categories)
+        return categories
+
+        # old
+        #filter_args = dict(products__in=[product], )
+        #if active is not None:
+            #filter_args['active'] = active
+        #return self._cache_result(
+                #("product", product.id, 'active', active),
+                #lambda: self.filter(**filter_args)
+                #)
+
+
+    def as_tree(self):
+        """
+        Get the category tree (for menu rendering)
+        """
+        cache_key = self._make_cache_key("tree")
+        tree = self._cache_get(cache_key)
+        if tree is None:
+            tree_all = {}
+            tree = []
+            values = self.values('id', 'parent_id', 'name')
+            for node in values:
+                node['children'] = []
+                tree_all[node['id']] = node
+            for node in values:
+                if node['parent_id']:
+                    tree_all[node['parent_id']]['children'].append(node)
+                else:
+                    tree.append(node)
+            self._cache_set(cache_key, tree)
+        return tree
+
+
+    def as_list(self):
+        """
+        Get the list of category wrapper objects (for menu rendering)
+        Each object contains level
+        """
+        cache_key = self._make_cache_key("list")
+        tree = self._cache_get(cache_key)
+        if tree is None:
+            tree_all = {}
+            tree = []
+            values = self.values('id', 'parent_id', 'name')
+            for node in values:
+                node['children'] = []
+                tree_all[node['id']] = node
+            for node in values:
+                if node['parent_id']:
+                    tree_all[node['parent_id']]['children'].append(node)
+                else:
+                    tree.append(node)
+            self._cache_set(cache_key, tree)
+        return tree
+
+
+    def manufacturers_by_category(self, category):
+        """
+        Get list of manufacturers which are represented on the category
+        NOTE assume that manufacturers themselves are "invariant"
+        """
+        cache_key = self._make_cache_key("manufacturers", category.id)
+        manufacturers = self._cache_get(cache_key)
+        if manufacturers is None:
+            #product_ids = self.by_category(category).values_list('id')
+            #manufacturers = Manufacturer.objects.filter(products__in=product_ids).distinct()
+            manufacturers = category.get_manufacturers()
+            self._cache_set(cache_key, manufacturers)
+        return manufacturers
+
+
+class ProductManager(CachingManager):
+
+    cache_fields = ['slug',]
+
+    def get_variants(self, product, active=True):
+        """
+        Get product variants
+        """
+        cache_key = self._make_cache_key("variants", product.id,
+                "active", active)
+        variants = self._cache_get(cache_key)
+        if variants is None:
+            variants = self.filter(parent=product)
+            if active:
+                variants = variants.filter(active=True)
+            self._cache_set(cache_key, variants)
+        return variants
+
+
+    def by_category(self, category, deep=False, active=True):
+        """
+        Get a list of products from a category or subtree of categories
+        Arguments:
+            category: the single category or the root of a tree branch
+            deep = True|False: search one category or the whole subtree
+            active: if True, search for Active products in Active categories
+        return a query set not evaluating it
+        (used for other methods)
+        """
+        categories = [category, ]
+        if deep:
+            try:
+                # given as Category instance
+                category_id = category.id
+            except:
+                # given as int?
+                category = self.get_cached(id=category)
+
+            subcategories = category.get_all_subcategories(active=active)
+            if subcategories:
+                categories.extend(subcategories)
+
+        if settings.VARIANTS_ENABLED:
+            qs = self.filter( (Q(parent__isnull=True) & Q(categories__in=categories))
+                           |
+                           (Q(variants__categories__in=categories) & Q(variants__categories_override=True)) )
+            if active:
+                # search for Active products in Active categories
+                qs = qs.filter( Q(parent__isnull=True) | Q(parent__active=True),
+                    active=True)
+        else:
+            qs = self.filter(categories__in=categories)
+
+            if active:
+                # search for Active products in Active categories
+                qs = qs.filter(active=True)
+        return qs.distinct()
+
+
+    def get_products_for_category(self, category,
+                     deep=False, # whether to get products from all subcategories
+                     sorting=None, # a Sorting instance
+                     filters=None, # a Filters instance
+                     active=True):
+        """
+        Get a list of products from a category or subtree of categories
+        Arguments:
+            deep = True|False: search one category or the whole subtree
+        """
+        if not category:
+            category_id = ""
+        else:
+            try:
+                # given as Category instance
+                category_id = category.id
+            except:
+                # given as int?
+                category_id = category
+
+        cache_key = self._make_cache_key("products", category_id,
+                                         "deep", deep,
+                                         "sorting", sorting,
+                                         "filters", filters,
+                                         "active", active)
+        products = self._cache_get(cache_key)
+        if products is None:
+            products = self
+            if category:
+                products = products.by_category(category, deep=deep, active=active)
+            elif active:
+                products = products.filter(active=True)
+
+            if filters:
+                products = filters.apply(products)
+            if sorting:
+                products = sorting.apply(products)
+            #products = products.distinct()
+            self._cache_set(cache_key, products)
+        return products
+
+
+    def search(self, string,
+            sorting=None, # a Sorting instance
+            active=True):
+
+        """ Search products (name and sku) for the string
+            Apply paging and sorting
+            Search is case-insensitive, with terms separated by space
+        """
+        string = unicode(string)
+        key = urlquote(string)
+        cache_key = self._make_cache_key("search", key,
+                                         "sorting", sorting,
+                                         "active", active)
+        match = self._cache_get(cache_key)
+        if match is None:
+            qs = Q(parent=None)
+            # if variants:
+            #   TODO
+            #   => make a separate query excluding the IDs of products found in the first query
+            terms = string.split()
+            for term in terms:
+                qs &= Q(name__icontains=term)
+            qs |= Q(sku__istartswith=string)
+            match = self.filter(qs)
+            self._cache_set(cache_key, match)
+        return match
+
+
+
+class ProductPropertyRelationManager(CachingManager):
+    def get_properties_for_product(self, product):
+        """
+        Get the list of properties for a product
+        """
+        cache_key = self._make_cache_key("product_properties", product.id)
+        values = self._cache_get(cache_key)
+        if values is None:
+            values = self.filter(product=product).select_related("property")
+            values = [v.property for v in values]
+            self._cache_set(cache_key, values)
+        return values
+
+class ProductPropertyValueManager(CachingManager):
+    def get_all_properties_values(self, variant):
+        """
+        Get the list of all properties' values for a product
+        """
+        cache_key = self._make_cache_key("product_property_values", variant.id)
+        values = self._cache_get(cache_key)
+        if values is None:
+            values = self.filter(product=variant).select_related("property", "value_option")
+            self._cache_set(cache_key, values)
+        return values
+
+    def get_property_values(self, property, variant):
+        """
+        Get the list of property values for a product_variant
+        """
+        return self._cache_result(
+                ("product_property_values", property.id, variant.id),
+                lambda: self.filter(product=variant, property=property).select_related("value_option")
+                )
+        cache_key = self._make_cache_key("product_property_values", property.id, variant.id)
+        values = self._cache_get(cache_key)
+        if values is None:
+            values = self.filter(product=variant, property=property).select_related("value_option")
+            self._cache_set(cache_key, values)
+        return values
+
+    #  values = self.cached_filter(key=(...), self.filter....)
+    #
+    #
+
+class ProductImageManager(CachingManager):
+    def get_images_for_product(self, product):
+        """
+        Get the list of images for a product
+        """
+        cache_key = self._make_cache_key("product_images", product.id)
+        values = self._cache_get(cache_key)
+        if values is None:
+            values = self.filter(product=product)
+            self._cache_set(cache_key, values)
+        return values

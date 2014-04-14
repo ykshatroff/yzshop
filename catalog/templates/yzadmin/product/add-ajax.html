@@ -1,0 +1,13 @@
+
+{% load i18n %}
+{% load yzadmin_tags %}
+    <form action="{% admin_url 'product' 'add' %}"
+            class="yzadmin-setup"
+            method="POST">
+        {% if category %}
+            {% trans 'Category' %}: {{ category.name }}
+        {% endif %}
+        {% include "yzadmin/form.html" %}
+        <button>{% trans 'OK' %}</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>

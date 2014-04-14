@@ -1,0 +1,8 @@
+{% load yzadmin_tags %}
+
+<ul>
+
+{% for category in categories_tree %}
+    {% tree_node category item %}
+{% endfor %}
+</ul>

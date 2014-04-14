@@ -1,0 +1,20 @@
+{% extends "yzadmin/base.html" %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block head_script %}
+{% endblock %}
+
+
+{% block section %}{{ model_name }}-index{% endblock %}
+
+{% block content_header_h1 %}
+{{ model_title }} page #{{ page }}
+{% endblock %}
+
+{% block content %}
+    {% for ent in objects %}
+    <div>{{ ent }}</div>
+    {% endfor %}
+{% endblock %}

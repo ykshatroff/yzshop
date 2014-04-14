@@ -1,0 +1,14 @@
+{% extends "yzadmin/actions-menu.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% block action_add_title %}{% trans 'Add Menu Group' %}{% endblock %}
+{% block action_delete_title %}{% trans 'Delete Menu Group' %}{% endblock %}
+{% block action_add %}
+    {{ block.super }}
+    {% if item %}
+    <a class="with-dialog"
+            id="yzadmin-action-add-menuitem"
+            href="{% admin_url model_name 'add_menuitem' item.id %}"
+        >{% block action_add_menuitem_title %}{% trans 'Add Menu Item' %}{% endblock %}</a>
+    {% endif %}
+{% endblock %}

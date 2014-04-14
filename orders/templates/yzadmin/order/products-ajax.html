@@ -1,0 +1,34 @@
+{% extends "yzadmin/base-ajax.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% load catalog_tags %}
+{% block content %}
+    {% if order_items %}
+        <table>
+            <tr>
+                <th>#</th>
+                <th>{% trans 'sku' %}</th>
+                <th>{% trans 'title' %}</th>
+                <th>{% trans 'price' %}</th>
+                <th>{% trans 'quantity' %}</th>
+                <th>{% trans 'total' %}</th>
+            </tr>
+            {% for order_item in order_items %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% admin_url 'product' 'edit' order_item.product.id %}">{{ order_item.sku }}</a></td>
+                <td><a href="{% admin_url 'product' 'edit' order_item.product.product.id %}">{{ order_item.name }}</a></td>
+                <td>{% get_price order_item.price %}</td>
+                <td>{{ order_item.quantity|strip_zeroes }}</td>
+                <td>{% get_price order_item.get_value %}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="5" style="text-align: right">{% trans 'total' %}</td>
+                <td>{% get_price item.value %}</td>
+            </tr>
+        </table>
+    {% else %}
+        {% trans 'No products' %}
+    {% endif %}
+{% endblock %}

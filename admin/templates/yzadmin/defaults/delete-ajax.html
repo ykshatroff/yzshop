@@ -1,0 +1,12 @@
+{% load yzadmin_tags %}
+{% load i18n %}
+    <form action="{% admin_url model_name 'delete' item.id %}" method="POST">
+        {% csrf_token %}
+        <b>{% trans 'Delete' %} {{ item }}</b>
+        <p>
+        {% trans 'Are you sure you want to delete this item?' %}
+        </p>
+        <input type="hidden" name="redirect" value="{{ redirect }}" />
+        <button>{% trans 'OK' %}</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>

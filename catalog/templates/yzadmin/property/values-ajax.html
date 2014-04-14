@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+    <div id="tab-{{ current_tab.name }}">
+        <table>
+            <tr>
+                <th>{% trans 'No.' %}</th>
+                <th>{% trans 'value' %}</th>
+                {% if is_editable %}
+                <th>{% trans 'Edit' %}</th>
+                {% endif %}
+            </tr>
+            {% for value in values %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                {% if is_editable %}
+                <td>{{ value.value }}</td>
+                <td><a href="{% admin_url model_name 'remove_option' item.id %}?option={{ value.id }}"
+                    class="with-dialog">{% trans 'Remove' %}</a></td>
+                {% else %}
+                <td>{{ value }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% if is_editable %}
+            <a href="{% admin_url model_name 'add_option' item.id %}"
+                    class="with-dialog">{% trans 'Add option' %}</a>
+        {% endif %}
+    </div>

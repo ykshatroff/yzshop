@@ -1,0 +1,574 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-25 13:57+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: models.py:47 models.py:65 models.py:172 models.py:291 models.py:483
+#: templates/yzadmin/category/categories-ajax.html:9
+#: templates/yzadmin/category/index.html:14
+#: templates/yzadmin/category/products-ajax.html:9
+#: templates/yzadmin/product/properties-ajax.html:14
+#: templates/yzadmin/product/properties-ajax.html:37
+#: templates/yzadmin/product/variants-ajax.html:8
+msgid "name"
+msgstr "название"
+
+#: models.py:48
+msgid "country"
+msgstr "страна"
+
+#: models.py:50 models.py:71 models.py:679 models.py:694
+msgid "image"
+msgstr "изображение"
+
+#: models.py:54 models.py:189
+msgid "manufacturer"
+msgstr "производитель"
+
+#: models.py:55
+msgid "manufacturers"
+msgstr "производители"
+
+#: models.py:66 models.py:173 models.py:484
+msgid "slug"
+msgstr "ссылка"
+
+#: models.py:67
+msgid "parent"
+msgstr "родитель"
+
+#: models.py:69 models.py:175
+msgid "short description"
+msgstr "краткое описание"
+
+#: models.py:70 models.py:176 models.py:302
+msgid "description"
+msgstr "описание"
+
+#: models.py:74 models.py:178 models.py:305 models.py:562 models.py:680
+#: models.py:695 templates/yzadmin/category/categories-ajax.html:8
+#: templates/yzadmin/category/index.html:13
+#: templates/yzadmin/category/products-ajax.html:8
+#: templates/yzadmin/product/properties-ajax.html:15
+#: templates/yzadmin/product/properties-ajax.html:38
+#: templates/yzadmin/product/variants-ajax.html:7
+msgid "position"
+msgstr "позиция"
+
+#: models.py:75 models.py:179 models.py:306
+#: templates/yzadmin/category/categories-ajax.html:10
+#: templates/yzadmin/category/index.html:15
+#: templates/yzadmin/category/products-ajax.html:10
+#: templates/yzadmin/product/variants-ajax.html:11
+msgid "active"
+msgstr "активен"
+
+#: models.py:77
+msgid "static block"
+msgstr "статический блок"
+
+#: models.py:84
+msgid "category"
+msgstr "категория"
+
+#: models.py:85 models.py:181
+msgid "categories"
+msgstr "категории"
+
+#: models.py:161
+msgid "piece"
+msgstr "штука"
+
+#: models.py:162
+msgid "package"
+msgstr "упаковка"
+
+#: models.py:163
+msgid "l"
+msgstr "л"
+
+#: models.py:164 models.py:277
+msgid "m"
+msgstr "м"
+
+#: models.py:165
+msgid "sq.m"
+msgstr "кв.м"
+
+#: models.py:166
+msgid "cu.m"
+msgstr "куб.м"
+
+#: models.py:167 models.py:283
+msgid "g"
+msgstr "г"
+
+#: models.py:168 models.py:282
+msgid "kg"
+msgstr "кг"
+
+#: models.py:169 models.py:278
+msgid "cm"
+msgstr "см"
+
+#: models.py:184 models.py:492
+msgid "properties"
+msgstr "свойства"
+
+#: models.py:191
+msgid "quantity units"
+msgstr "единицы кол-ва"
+
+#: models.py:193
+msgid "default variant"
+msgstr "вариант по умолчанию"
+
+#: models.py:202 models.py:287 models.py:558 models.py:606 models.py:677
+#: models.py:692
+msgid "product"
+msgstr "товар"
+
+#: models.py:203
+msgid "products"
+msgstr "товары"
+
+#: models.py:279
+msgid "mm"
+msgstr "мм"
+
+#: models.py:292 templates/yzadmin/product/variants-ajax.html:9
+msgid "SKU"
+msgstr "артикул"
+
+#: models.py:292
+msgid "Your unique product article number"
+msgstr "Ваш уникальный артикул товара"
+
+#: models.py:294
+msgid "original SKU"
+msgstr "оригинальный артикул"
+
+#: models.py:294
+msgid "Manufacturer's product article number"
+msgstr "Артикул производителя"
+
+#: models.py:296
+msgid "bar code"
+msgstr "штрих-код"
+
+#: models.py:296
+msgid "EAN-13 or similar bar code"
+msgstr "EAN-13 или аналогичный штрих-код"
+
+#: models.py:298
+msgid "UUID"
+msgstr ""
+
+#: models.py:298
+msgid "Universally unique product ID"
+msgstr "Универсально-уникальный ИД товара"
+
+#: models.py:306
+msgid "Whether the product is visible"
+msgstr "Доступность товара"
+
+#: models.py:314
+msgid "quantity"
+msgstr "количество"
+
+#: models.py:314
+msgid "quantity per stock unit"
+msgstr "количество в продаваемой ед."
+
+#: models.py:317 templates/yzadmin/product/variants-ajax.html:10
+msgid "price"
+msgstr "цена"
+
+#: models.py:317
+msgid "price per stock unit"
+msgstr "цена за продаваемую ед."
+
+#: models.py:319
+msgid "on sale"
+msgstr "распродажа"
+
+#: models.py:320
+msgid "sale price"
+msgstr "цена распродажи"
+
+#: models.py:322
+msgid "effective price"
+msgstr "эффективная цена"
+
+#: models.py:324
+msgid "available for ordering"
+msgstr "доступен для заказа"
+
+#: models.py:325
+msgid "when becomes available for ordering"
+msgstr "когда будет доступен для заказа"
+
+#: models.py:327
+msgid "length"
+msgstr "длина"
+
+#: models.py:328
+msgid "width"
+msgstr "ширина"
+
+#: models.py:329
+msgid "height"
+msgstr "высота"
+
+#: models.py:330
+msgid "weight"
+msgstr "вес"
+
+#: models.py:332
+msgid "length units"
+msgstr "единицы длины"
+
+#: models.py:333
+msgid "weight units"
+msgstr "единицы веса"
+
+#: models.py:341
+msgid "product variant"
+msgstr "вариант товара"
+
+#: models.py:342
+msgid "product variants"
+msgstr "варианты товара"
+
+#: models.py:473
+msgid "boolean"
+msgstr "да-нет"
+
+#: models.py:474
+msgid "integer"
+msgstr "целое"
+
+#: models.py:475
+msgid "decimal"
+msgstr "десятичное"
+
+#: models.py:476
+msgid "option"
+msgstr "выбор значения"
+
+#: models.py:485
+msgid "value type"
+msgstr "тип значения"
+
+#: models.py:486
+msgid "allow multiple values"
+msgstr "допустимы множественные значения"
+
+#: models.py:491 models.py:538 models.py:560 models.py:608
+#: templates/yzadmin/productvariant/properties-ajax.html:8
+msgid "property"
+msgstr "свойство"
+
+#: models.py:540 yzadmin.py:142 yzadmin.py:144 yzadmin.py:146 yzadmin.py:148
+#: templates/yzadmin/productvariant/properties-ajax.html:9
+#: templates/yzadmin/property/values-ajax.html:7
+msgid "value"
+msgstr "значение"
+
+#: models.py:544 models.py:611
+msgid "property option"
+msgstr "опция свойства"
+
+#: models.py:545
+msgid "property options"
+msgstr "опции свойства"
+
+#: models.py:569
+msgid "Product to Property Relation"
+msgstr ""
+
+#: models.py:570
+msgid "Product to Property Relations"
+msgstr ""
+
+#: models.py:613
+msgid "integer value"
+msgstr "целое значение"
+
+#: models.py:614
+msgid "decimal value"
+msgstr "десятичное значение"
+
+#: models.py:616
+msgid "boolean value"
+msgstr "значение да-нет"
+
+#: models.py:681 models.py:696
+msgid "title"
+msgstr "заголовок"
+
+#: yzadmin.py:139
+msgid "yes"
+msgstr "да"
+
+#: yzadmin.py:140
+msgid "no"
+msgstr "нет"
+
+#: yzadmin.py:180 yzadmin.py:275 yzadmin.py:457 yzadmin.py:667
+msgid "Data"
+msgstr "Данные"
+
+#: yzadmin.py:181 yzadmin.py:277
+msgid "Categories"
+msgstr "Категории"
+
+#: yzadmin.py:182 yzadmin.py:669
+msgid "Products"
+msgstr "Товары"
+
+#: yzadmin.py:183 yzadmin.py:279 yzadmin.py:459
+msgid "Images"
+msgstr "Изображения"
+
+#: yzadmin.py:184 yzadmin.py:280
+msgid "Meta"
+msgstr "Мета"
+
+#: yzadmin.py:276 yzadmin.py:458
+msgid "Properties"
+msgstr "Свойства"
+
+#: yzadmin.py:278
+msgid "Variants"
+msgstr "Варианты"
+
+#: yzadmin.py:451
+msgid "One of the fields requires a unique value"
+msgstr "Одно из полей нарушает условие уникальности значения"
+
+#: yzadmin.py:460
+msgid "Dimensions"
+msgstr "Измерения"
+
+#: yzadmin.py:461
+msgid "Stock"
+msgstr "Склад, запасы"
+
+#: yzadmin.py:462
+msgid "Sale"
+msgstr "Распродажа"
+
+#: yzadmin.py:668
+msgid "Values"
+msgstr "Значения"
+
+#: templates/yzadmin/category/actions-menu.html:10
+msgid "Add Subcategory"
+msgstr "Добавить подкатегорию"
+
+#: templates/yzadmin/category/add-ajax.html:6
+msgid "Add category"
+msgstr "Добавить категорию"
+
+#: templates/yzadmin/category/add-ajax.html:9
+msgid "Parent category"
+msgstr "Родительская категория"
+
+#: templates/yzadmin/category/add-ajax.html:11
+msgid "The category will be added to top level"
+msgstr "категория будет добавлена в верхний уровень"
+
+#: templates/yzadmin/category/add-ajax.html:14
+#: templates/yzadmin/product/add-ajax.html:11
+#: templates/yzadmin/product/categories-ajax.html:12
+#: templates/yzadmin/property/add_option-ajax.html:8
+msgid "OK"
+msgstr ""
+
+#: templates/yzadmin/category/add-ajax.html:15
+#: templates/yzadmin/product/add-ajax.html:12
+#: templates/yzadmin/productvariant/change_property-ajax.html:16
+#: templates/yzadmin/productvariant/change_property.html:16
+#: templates/yzadmin/property/add_option-ajax.html:9
+msgid "Close"
+msgstr "Закрыть"
+
+#: templates/yzadmin/category/categories-ajax.html:16
+#: templates/yzadmin/category/index.html:21
+#: templates/yzadmin/category/products-ajax.html:16
+#: templates/yzadmin/product/variants-ajax.html:24
+msgid "yes,no"
+msgstr "да,нет"
+
+#: templates/yzadmin/category/categories-ajax.html:21
+msgid "No subcategories"
+msgstr "Нет подкатегорий"
+
+#: templates/yzadmin/category/images-ajax.html:6
+msgid "Image"
+msgstr "Изображение"
+
+#: templates/yzadmin/category/index.html:26
+msgid "No categories"
+msgstr "Нет категорий"
+
+#: templates/yzadmin/category/products-ajax.html:21
+msgid "No products"
+msgstr "Нет товаров"
+
+#: templates/yzadmin/product/actions-menu.html:10
+#: templates/yzadmin/product/variants-ajax.html:42
+#: templates/yzadmin/productvariant/actions-menu.html:18
+msgid "Add Variant"
+msgstr "Добавить вариант"
+
+#: templates/yzadmin/product/add-ajax.html:8
+msgid "Category"
+msgstr "категория"
+
+#: templates/yzadmin/product/add_variant-ajax.html:6
+msgid "Add Product Variant"
+msgstr "Добавить вариант товара"
+
+#: templates/yzadmin/product/add_variant-ajax.html:8
+#: templates/yzadmin/productvariant/actions-menu.html:6
+#: templates/yzadmin/productvariant/change_property-ajax.html:8
+#: templates/yzadmin/productvariant/change_property.html:8
+msgid "Product"
+msgstr "Товар"
+
+#: templates/yzadmin/product/categories-ajax.html:13
+#: templates/yzadmin/product/properties-ajax.html:55
+#: templates/yzadmin/product/variants-ajax.html:49
+msgid "Reset"
+msgstr "Сброс"
+
+#: templates/yzadmin/product/category_toggle-ajax.html:5
+msgid "click to deselect"
+msgstr "Нажмите, чтобы убрать"
+
+#: templates/yzadmin/product/category_toggle-ajax.html:7
+msgid "click to select"
+msgstr "Нажмите, чтобы выбрать"
+
+#: templates/yzadmin/product/properties-ajax.html:9
+msgid "Assigned properties"
+msgstr "Назначенные свойства"
+
+#: templates/yzadmin/product/properties-ajax.html:16
+msgid "remove"
+msgstr "убрать"
+
+#: templates/yzadmin/product/properties-ajax.html:33
+msgid "Choose properties to assign"
+msgstr "Выберите свойства, чтобы назначить"
+
+#: templates/yzadmin/product/properties-ajax.html:39
+msgid "assign"
+msgstr "назначить"
+
+#: templates/yzadmin/product/variants-ajax.html:12
+msgid "is_default"
+msgstr "по умолчанию"
+
+#: templates/yzadmin/product/variants-ajax.html:17
+msgid "Edit Variant"
+msgstr "Редактировать вариант"
+
+#: templates/yzadmin/product/variants-ajax.html:22
+msgid "change"
+msgstr "Изменить"
+
+#: templates/yzadmin/product/variants-ajax.html:29
+msgid "Yes"
+msgstr "Да"
+
+#: templates/yzadmin/product/variants-ajax.html:31
+msgid "No"
+msgstr "Нет"
+
+#: templates/yzadmin/product/variants-ajax.html:34
+msgid "Set as default"
+msgstr "Назначить по умолчанию"
+
+#: templates/yzadmin/productvariant/actions-menu.html:22
+msgid "Copy Variant"
+msgstr "Копировать вариант"
+
+#: templates/yzadmin/productvariant/change_property-ajax.html:9
+#: templates/yzadmin/productvariant/change_property.html:9
+msgid "Variant"
+msgstr "Вариант"
+
+#: templates/yzadmin/productvariant/change_property-ajax.html:10
+#: templates/yzadmin/productvariant/change_property.html:10
+msgid "Property"
+msgstr "свойство"
+
+#: templates/yzadmin/productvariant/properties-ajax.html:24
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/yzadmin/productvariant/properties-ajax.html:28
+msgid "Not assigned"
+msgstr "Не назначен"
+
+#: templates/yzadmin/productvariant/properties-ajax.html:32
+msgid "Assign"
+msgstr "Назначить"
+
+#: templates/yzadmin/productvariant/properties-ajax.html:39
+msgid "Product has no assigned properties"
+msgstr "У товара нет назначенных свойств"
+
+#: templates/yzadmin/productvariant/properties-ajax.html:41
+msgid "Manage product properties"
+msgstr "Управление свойствами товара"
+
+#: templates/yzadmin/property/values-ajax.html:6
+msgid "No."
+msgstr "#"
+
+#: templates/yzadmin/property/values-ajax.html:9
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/yzadmin/property/values-ajax.html:18
+msgid "Remove"
+msgstr "Убрать"
+
+#: templates/yzadmin/property/values-ajax.html:27
+msgid "Add option"
+msgstr "Добавить значение"
+
+msgid "%(count)s product"
+msgid_plural "%(count)s products"
+msgstr[0] "%(count)s товар"
+msgstr[1] "%(count)s товара"
+msgstr[2] "%(count)s товаров"
+
+msgid "full size"
+msgstr "полный размер"
+
+msgid "Add Image"
+msgstr "Добавить изображение"
+
+msgid "No product"
+msgstr "Нет товара"

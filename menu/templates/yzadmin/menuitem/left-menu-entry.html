@@ -1,0 +1,11 @@
+{% load yzadmin_tags %}
+{% load yz_menu_tags %}
+<ul>
+    {% for mi in menuitem.children %}
+    <li><a {% if mi.content == current %} class="current"{% endif %}
+        href="{% admin_url 'menuitem' 'edit' mi.id  %}">{{ mi.content }}</a></li>
+        {% if mi.children %}
+            {% display_menu_tree mi current template_name %}
+        {% endif %}
+    {% endfor %}
+</ul>

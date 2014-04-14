@@ -1,0 +1,18 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+
+<div id="cat-{{ category.id }}" class="node">
+    <span class="checkbox"><input type="checkbox" name="categories"
+            {% if is_current %}
+            checked="checked"
+            {% endif %}
+            value="{{ category.id }}" /></span>
+    <a href="{% admin_url 'category' 'edit' category.id %}">{{ category.name }}</a>
+
+
+{% if category.children %}
+    {% for category in category.children %}
+        {% tree_select_node category selected %}
+    {% endfor %}
+{% endif %}
+</div>

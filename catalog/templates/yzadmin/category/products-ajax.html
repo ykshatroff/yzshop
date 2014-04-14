@@ -1,0 +1,23 @@
+{% extends "yzadmin/base-ajax.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% block content %}
+    {% if products %}
+        <table>
+            <tr>
+                <th>{% trans 'position' %}</th>
+                <th>{% trans 'name' %}</th>
+                <th>{% trans 'active' %}</th>
+            </tr>
+            {% for product in products %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% admin_url 'product' 'edit' product.id %}">{{ product.name }}</a></td>
+                <td>{{ product.active|yesno:_("yes,no") }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        {% trans 'No products' %}
+    {% endif %}
+{% endblock %}

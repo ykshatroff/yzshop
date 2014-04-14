@@ -1,0 +1,9 @@
+{% extends "yzadmin/defaults/edit-ajax.html" %}
+{% load thumbnail %}
+{% load i18n %}
+{% block tab_content %}
+    {% if item.image %}
+    <img src="{% thumbnail item.image 160x120 %}" alt="{% trans 'Image' %}" />
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

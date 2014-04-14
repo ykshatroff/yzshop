@@ -1,0 +1,12 @@
+{% extends "yzadmin/actions-menu.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% block action_add %}
+    {{ block.super }}
+    {% if item %}
+    <a class="with-dialog"
+            id="yzadmin-action-add-variant"
+            href="{% admin_url model_name 'add_variant' item.id %}"
+        >{% block action_add_variant_title %}{% trans 'Add Variant' %}{% endblock %}</a>
+    {% endif %}
+{% endblock %}

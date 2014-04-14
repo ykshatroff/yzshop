@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+
+<div class="yzadmin-search">
+    <h3>{% trans 'Search' %}</h3>
+    <div>
+        <form class="yzadmin-setup"
+            action="{% admin_url model_name 'search' %}" method="GET">
+        <input type="text" id="xautocomplete" name="term"
+            value="{{ term }}"
+            yz:initial-value="{{ term }}"
+            X-onfocus="if (this.value==this.getAttribute('yz:initial-value')){ this.value='' }"
+            X-onblur="if (this.value==''){ this.value=this.getAttribute('yz:initial-value') }"
+            autocomplete-url="{% admin_url model_name 'search' %}"
+            />
+        </form>
+    </div>
+</div>
+

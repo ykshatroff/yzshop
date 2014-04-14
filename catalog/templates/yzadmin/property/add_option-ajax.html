@@ -1,0 +1,11 @@
+{% load yzadmin_tags %}
+{% load i18n %}
+<div id="yzadmin-add">
+    <form action="{% admin_url model_name action item.id %}" 
+        class="yzadmin-setup"
+        method="POST">
+        {% include "yzadmin/form.html" %}
+        <button>{% trans 'OK' %}</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>
+</div>

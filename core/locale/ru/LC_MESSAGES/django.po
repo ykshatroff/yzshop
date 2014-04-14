@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-03 22:21+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: models.py:18
+msgid "meta title"
+msgstr "заголовок мета (title)"
+
+#: models.py:19
+msgid "meta keywords"
+msgstr "ключевые слова (meta keywords)"
+
+#: models.py:20
+msgid "meta description"
+msgstr "описание мета (meta description)"
+
+#: models.py:53
+msgid "country code"
+msgstr "код страны"
+
+#: models.py:54 models.py:78 models.py:118 models.py:180
+msgid "name"
+msgstr "название"
+
+#: models.py:62 models.py:76
+msgid "country"
+msgstr "страна"
+
+#: models.py:63
+msgid "countries"
+msgstr "страны"
+
+#: models.py:77
+msgid "currency code"
+msgstr "код валюты"
+
+#: models.py:79
+msgid "display format"
+msgstr "формат вывода"
+
+#: models.py:89
+msgid "currency"
+msgstr "валюта"
+
+#: models.py:90
+msgid "currencies"
+msgstr "валюты"
+
+#: models.py:119
+msgid "text"
+msgstr "текст"
+
+#: models.py:127 models.py:191
+msgid "static block"
+msgstr "статический блок"
+
+#: models.py:128
+msgid "static blocks"
+msgstr "статические блоки"
+
+#: models.py:181
+msgid "shop owner"
+msgstr "владелец магазина"
+
+#: models.py:182
+msgid "address"
+msgstr "адрес"
+
+#: models.py:183
+msgid "phones"
+msgstr "телефоны"
+
+#: models.py:184
+msgid "domain"
+msgstr "адрес сайта"
+
+#: models.py:185
+msgid "From e-mail address"
+msgstr "адрес e-mail отправителя"
+
+#: models.py:186
+msgid "notification email addresses"
+msgstr "адреса e-mail для уведомлений"
+
+#: models.py:187
+msgid "Email addresses separated by comma or one per line"
+msgstr "Email-адреса, разделённые запятой, или по одному в строке"
+
+#: models.py:189 yzadmin.py:53
+msgid "description"
+msgstr "описание"
+
+#: models.py:190
+msgid "image"
+msgstr "изображение"
+
+#: models.py:194
+msgid "Google Analytics ID"
+msgstr ""
+
+#: models.py:195
+msgid "Google Analytics Site Tracking"
+msgstr ""
+
+#: models.py:196
+msgid "Google Analytics E-Commerce Tracking"
+msgstr ""
+
+#: models.py:198
+msgid "Shipping countries"
+msgstr "страны доставки"
+
+#: models.py:199
+msgid "default country"
+msgstr "страна по умолчанию"
+
+#: models.py:201
+msgid "default currency"
+msgstr "валюта по умолчанию"
+
+#: models.py:207 yzadmin.py:77
+msgid "shop"
+msgstr "магазин"
+
+#: models.py:208
+msgid "shops"
+msgstr "магазины"
+
+#: yzadmin.py:52
+msgid "Data"
+msgstr "Данные"
+
+#: yzadmin.py:54
+msgid "Meta"
+msgstr "Мета"

@@ -1,0 +1,12 @@
+{% load yzadmin_tags %}
+
+<li id="cat_{{ category.id }}"><a {% if category.id == current.id %} class="current"{% endif %}
+     href="{% admin_url 'category' 'edit' category.id %}">{{ category.content.name }}</a></li>
+<!-- current {{ current }}, id {{ current.id }} -->
+{% if category.children %}
+    <ul>
+    {% for category in category.children %}
+        {% tree_node category current %}
+    {% endfor %}
+    </ul>
+{% endif %}

@@ -1,0 +1,28 @@
+{% load yzadmin_tags %}
+{% load yz_menu_tags %}
+{% load i18n %}
+<ul>
+{% for menugroup in left_menu %}
+    <li><a href="{% admin_url 'menugroup' 'edit' menugroup.id  %}"
+        {% if menugroup == item.group %} class="current"{% endif %}
+            >{{ menugroup.name }}</a>
+        <a href="#" class="context-menu">&raquo;</a>
+    </li>
+    {% if menugroup == item.group %}
+        {% with mg=menugroup|menu_items:None|menu_tree:False %}
+            {% display_menu_tree mg item 'yzadmin/menuitem/left-menu-entry.html' %}
+        {% endwith %}
+{#        {% include "yzadmin/menuitem/left-menu-entry.html" with menuitem=menugroup.get_items_tree %}#}
+{#            <ul>#}
+{#                {% for mi in menuitems %}#}
+{#                    {% if mi.id %}#}
+{#                <li class="level-{{ mi.level }}"><a {% if mi.content == item %} class="current"{% endif %}#}
+{#                    href="{% admin_url 'menuitem' 'edit' mi.id  %}">{{ mi.content }}</a></li>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            </ul>#}
+    {% endif %}
+{% empty %}
+    {% trans 'No menu groups' %}
+{% endfor %}
+</ul>

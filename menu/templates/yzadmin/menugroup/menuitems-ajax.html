@@ -1,0 +1,33 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+    <div id="tab-{{ current_tab.name }}">
+    {% if menuitems %}
+        <table>
+            <tr>
+                <th>{% trans 'title' %}</th>
+                <th>{% trans 'link' %}</th>
+                <th>{% trans 'active' %}</th>
+            </tr>
+            {% for menuitem in menuitems %}
+            <tr>
+                <td>
+                <a href="{% admin_url 'menuitem' 'edit' menuitem.id %}">{{ menuitem.title }}</a>
+                </td>
+                <td>{{ menuitem.link }} </td>
+                <td>{{ menuitem.active|yesno:_("yes,no") }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    <h3>{% trans 'Add Menu Item' %}</h3>
+    <form action="{% admin_url 'menuitem' 'add' %}"
+        class="yzadmin-setup"
+        method="POST">
+        {% include "yzadmin/form.html" %}
+        <button>{% trans 'OK' %}</button>
+        <button type="reset">{% trans 'Reset' %}</button>
+    </form>
+    {% if request.is_ajax %}
+        {% include "yzadmin/messages.html" %}
+    {% endif %}
+    </div>

@@ -1,0 +1,17 @@
+{% load yzadmin_tags %}
+
+<div id="yzadmin-page">
+
+    {% include "yzadmin/page-nav.html" %}
+    <ul>
+    {% for obj in page.object_list %}
+        {% block page_item %}
+        <li><a href="{% admin_url model_name 'edit' obj.id  %}"
+            yz:item-id="{{ obj.id }}"
+            yz:removable="yes"
+            {% if obj == item %} class="current"{% endif %}
+                >{% if obj.name %}{{ obj.name }}{% else %}{{ obj }}{% endif %}</a></li>
+        {% endblock page_item %}
+    {% endfor %}
+    </ul>
+</div>

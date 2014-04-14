@@ -1,0 +1,28 @@
+{% extends "yzadmin/defaults/index.html" %}
+{% load i18n %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>{% trans 'Parameter' %}</th>
+        <th>{% trans 'all' %}</th>
+        {% for st_nr, st_name, c, s in orders_stat %}
+        <th>{% trans st_name %}</th>
+        {% endfor %}
+    </tr>
+    <tr>
+        <td> {% trans 'Total number of orders' %}</td>
+        <td>{{ number }}</td>
+        {% for st_nr, st_name, c, s in orders_stat %}
+        <td>{{ c }}</td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <td> {% trans 'Total sum of orders' %}</td>
+        <td>{{ total }}</td>
+        {% for st_nr, st_name, c, s in orders_stat %}
+        <td>{{ s }}</td>
+        {% endfor %}
+    </tr>
+</table>
+{% endblock %}

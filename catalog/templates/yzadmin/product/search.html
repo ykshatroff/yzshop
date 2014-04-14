@@ -1,0 +1,15 @@
+{% extends "yzadmin/defaults/search.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% load core_tags %}
+{% block search_results %}
+    <div class="yzadmin-search-results">
+        {# Print links to found items #}
+        <ul>
+        {% for obj in found_items %}
+            <li><a href="{% admin_url model_name 'edit' obj.id %}"
+                >{% highlight obj.sku term True %}. {% highlight obj.name term %}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock search_results %}

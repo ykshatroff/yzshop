@@ -1,0 +1,54 @@
+{% extends "yzadmin/defaults/edit-ajax.html" %}
+{% load yzadmin_tags %}
+{% load i18n %}
+
+
+{% block tab_content %}
+    {% if menuitems %}
+        <form action="{% admin_url model_name 'delete_from_menu' item.id %}" method="POST" />
+            {% csrf_token %}
+            <h3>{% trans 'Current menu items' %}</h3>
+            {% for menuitem in menuitems %}
+
+                <div class="xxx" style="overflow: auto; margin: 10px ">
+                    <div style="float: left; margin: 0 10px 0 0">
+                        <input type="checkbox" name="delete" value="{{ menuitem.id }}" />
+                    </div>
+                    <a href="{% admin_url 'menugroup' 'edit' menuitem.group.id %}"
+                        >{{ menuitem.group }}</a>
+                {% for ent in menuitem.get_path %}
+                    &raquo;
+                    <a href="{% admin_url 'menuitem' 'edit' ent.id %}"
+                        >{{ menuitem.title }}</a>
+                {% endfor %}
+                </div>
+            {% endfor %}
+            <button>{% trans 'Delete selected' %}</button>
+        </form>
+    {% else %}
+        {% trans 'Item is not in any menu yet' %}
+    {% endif %}
+
+    {% if menugroups %}
+        <h3>{% trans 'Add to menu' %}</h3>
+        <form action="{% admin_url model_name 'add_to_menu' item.id %}" method="POST" />
+            {% csrf_token %}
+            <div class="field">
+                <label>
+                    <span>{% trans 'title' %}</span>
+                    <input type="text" name="title"
+                        value="{% if item.name %}{{ item.name }}{% else %}{{ item }}{% endif %}" />
+                </label>
+            </div>
+            {% for group in menugroups %}
+            <div>
+                <label>
+                    <input type="checkbox" name="add_menugroup" value="{{ group.id }}" />
+                    <span>{{ group.name }}</span>
+                </label>
+            </div>
+            {% endfor %}
+            <button>{% trans 'Add to selected' %}</button>
+        </form>
+    {% endif %}
+{% endblock tab_content %}

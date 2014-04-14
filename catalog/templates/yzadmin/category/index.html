@@ -1,0 +1,28 @@
+{% extends "yzadmin/defaults/index.html" %}
+{% load yzadmin_tags %}
+{% load i18n %}
+
+{% block content_left_menu %}
+    {% include "yzadmin/category/tree.html" %}
+{% endblock %}
+
+{% block content %}
+    {% if top_categories %}
+        <table>
+            <tr>
+                <th>{% trans 'position' %}</th>
+                <th>{% trans 'title' %}</th>
+                <th>{% trans 'active' %}</th>
+            </tr>
+            {% for category in top_categories %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% admin_url 'category' 'edit' category.id %}">{{ category.name }}</a></td>
+                <td>{{ category.active|yesno:_("yes,no") }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        {% trans 'No categories' %}
+    {% endif %}
+{% endblock %}

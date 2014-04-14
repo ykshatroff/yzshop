@@ -1,0 +1,22 @@
+{% extends "yzadmin/base.html" %}
+{% load i18n %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block head_script %}
+{% endblock %}
+
+
+{% block section %}model-error{% endblock %}
+
+{% block content_header_h1 %}
+{% trans 'Error!' %}
+{% endblock %}
+
+{% block content %}
+<div class="error">
+{% trans 'Error description:' %}<br />
+{{ error.message }}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "yzadmin/base-ajax.html" %}
+
+{% block content %}
+        <table>
+            {% for field_name, field_value in order_fields %}
+            <tr>
+                <td>{{ field_name }}</td>
+                <td>{{ field_value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+{% endblock %}

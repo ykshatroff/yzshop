@@ -1,0 +1,38 @@
+{% extends "yzadmin/base-ajax.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+
+{% block content %}
+        <div>
+
+        </div>
+        <table>
+            <tr>
+                <td>{% trans 'status' %}</td>
+                <td>{{ item.get_text_status }}</td>
+            </tr>
+            {% for field_name, field_value in order_fields %}
+            {% if field_value %}
+            <tr>
+                <td>{{ field_name }}</td>
+                <td>{{ field_value }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            {% with available_status=item.get_available_status %}
+            {% if available_status %}
+            <tr>
+                <td>{% trans 'set status' %}</td>
+                <td>
+                    <ul>
+                    {% for s_nr, s_name in available_status %}
+                        <li><a href="{% admin_url model_name 'change_status' item.id %}?status={{ s_nr }}">{{ s_name }}</a>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endif %}
+            {% endwith %}
+        </table>
+
+{% endblock %}

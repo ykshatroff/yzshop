@@ -1,0 +1,33 @@
+{% extends "yzadmin/base-ajax.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% block content %}
+    {% if subcategories %}
+        <table>
+            <tr>
+                <th>{% trans 'position' %}</th>
+                <th>{% trans 'name' %}</th>
+                <th>{% trans 'active' %}</th>
+            </tr>
+            {% for category in subcategories %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% admin_url 'category' 'edit' category.id %}">{{ category.name }}</a></td>
+                <td>{{ category.active|yesno:_("yes,no") }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        {% trans 'No subcategories' %}
+    {% endif %}
+    <h3>{% trans 'Add Subcategory' %}</h3>
+
+    <form action="{% admin_url 'category' 'add' %}"
+            class="yzadmin-setup"
+            method="POST">
+        {% csrf_token %}
+        {% include "yzadmin/form.html" %}
+        <button>OK</button>
+        <button type="reset">{% trans 'Reset' %}</button>
+    </form>
+{% endblock %}

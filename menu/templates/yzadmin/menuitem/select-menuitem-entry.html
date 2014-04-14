@@ -1,0 +1,15 @@
+{% load yzadmin_tags %}
+{% load yz_menu_tags %}
+<ul class="inner">
+    {% for mi in menuitem.children %}
+        {% if mi.id == current.id %}
+    <li class="current">{{ current }}</li>{# don't draw the current item's subtree #}
+        {% else %}
+    <li><a {% if mi.id == current.parent_id %} class="current"{% endif %}
+        href="#{{ mi.id }}">{{ mi.content }}</a></li>
+            {% if mi.children %}
+                {% display_menu_tree mi current template_name %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>

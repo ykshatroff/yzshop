@@ -1,0 +1,91 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:yz="http://yz.net/yz" >
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+        <title>{% block title %}YzAdmin: {{ SHOP.get_meta_title }}{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ STATIC_URL }}yzadmin/images/logo-16x16.png" type="image/png" />
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}yzadmin/css/admin.css" />
+
+        {% block head %}
+        {% endblock %}
+
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}js/contrib/jgrowl/jquery.jgrowl.css" />
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}js/contrib/jquery-ui/jquery-ui.css" />
+
+        {% block head_styles %}{% endblock %}
+
+        <script>
+            STATIC_URL = "{{ STATIC_URL }}"
+            YZADMIN_URL = "{% url 'yzadmin_index_view' %}"
+            // TODO
+            LANG = "ru"
+        </script>
+        <script src="{{ STATIC_URL }}js/contrib/jquery/jquery.js"></script>
+        <script src="{{ STATIC_URL }}js/contrib/jquery-ui/jquery-ui.js"></script>
+        <script src="{{ STATIC_URL }}js/contrib/jgrowl/jquery.jgrowl.js"></script>
+        <script src="{{ STATIC_URL }}js/contrib/jquery/jquery.form.pack.js"></script>
+        <script src="{{ STATIC_URL }}yzadmin/js/urlify.js"></script>
+        <script src="{{ STATIC_URL }}yzadmin/js/yzadmin.js"></script>
+        {% block head_script %}{% endblock %}
+    </head>
+    <body class="{% block section %}model-{{ model_name }} action-{{ action }}{% endblock %}">
+        <div class="yzadmin-header">
+            <div class="logo">
+                <a href="{% url 'yz_index_view' %}" title="{{ SHOP.get_meta_title }}"></a>
+            </div>
+            <div class="username">
+                {% if user.is_authenticated %}
+                    {% trans 'Welcome,' %}
+                    {% if user.first_name or user.last_name %}
+                        <span>{{ user.get_full_name }} ({{ user.username }})</span>
+                    {% else %}
+                        <span>{{ user.username }}</span>
+                    {% endif %}
+                    | <a class="logout"
+                         href="{% url 'yz_logout' %}">{% trans 'Logout' %}</a>
+                    <div>{% trans 'Last login' %}: {{ user.last_login|date:"Y-m-d H:i:s" }}</div>
+                    <div>{% trans 'Last refresh' %}: {% now "Y-m-d H:i:s" %}</div>
+                {% else %}
+                    <a href="{% url 'yz_login' %}">{% trans 'Login' %}</a>
+                {% endif %}
+            </div>
+        </div>
+        {% block content_wrapper %}
+            {% block content_main_menu_wrapper %}
+            <div class="yzadmin-main-menu">
+                {% block content_main_menu %}
+                    {% include "yzadmin/main-menu.html" with menuitems=menu.get_items %}
+                {% endblock %}
+            </div>
+            {% endblock %}
+            {% block content_left_menu_wrapper %}
+            <div class="yzadmin-left-menu">
+                {% admin_actions_menu %}
+                {% admin_left_menu %}
+            </div>
+            {% endblock %}
+            <div class="yzadmin-content">
+            {% block content_header %}
+                <h1>{% block content_header_h1 %}{% endblock %}</h1>
+            {% endblock %}
+                <div id="content">
+            {% block content %}
+            {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+
+        <div class="yzadmin-footer">
+            <p>{% trans 'Powered by' %} YzShop</p>
+        </div>
+        <div id="dialog"></div>
+        {% include "yzadmin/messages.html" %}
+    </body>
+</html>

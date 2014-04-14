@@ -1,0 +1,46 @@
+{% extends "yzadmin/base-ajax.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% load thumbnail %}
+{% block content %}
+        {% if images %}
+        <table>
+            <tr>
+                <th>{% trans 'position' %}</th>
+                <th> </th>
+                <th>{% trans 'title' %}</th>
+                <th> </th>
+            </tr>
+            {% for imagerel in images %}
+            <tr>
+                <td class="pos"><a class="with-dialog"
+                        href="{% admin_url model_name 'edit_image' item.id %}?image={{ imagerel.id }}"
+                        >{{ forloop.counter }} ({{ imagerel.position }})</a>
+                </td>
+                <td>
+                    <a href="{{ imagerel.image.url }}"
+                            title="{% trans 'full size' %}"><img
+                            src="{% thumbnail imagerel.image 160x120 %}"
+                            alt="" title="" /></a>
+                </td>
+                <td><a class="with-dialog"
+                        href="{% admin_url model_name 'edit_image' item.id %}?image={{ imagerel.id }}"
+                        >{{ imagerel.title }}</a>
+                </td>
+                <td>
+                    <a class="with-dialog"
+                        href="{% admin_url model_name 'delete_image' item.id %}?image={{ imagerel.id }}"
+                        >{% trans 'delete image' %}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <h3>{% trans 'Add Image' %}</h3>
+        <form method="POST"
+                action="{% admin_url model_name 'add_image' item.id %}"
+                enctype="multipart/form-data">
+            {% include "yzadmin/form.html" %}
+            <button>OK</button>
+        </form>
+{% endblock %}

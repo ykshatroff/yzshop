@@ -1,0 +1,12 @@
+
+{% load i18n %}
+{% load yzadmin_tags %}
+    <form action="{% admin_url 'product' 'add_variant' item.id %}"
+            class="yzadmin-setup"
+            title="{% trans 'Add Product Variant' %}"
+            method="POST">
+        {% trans 'Product' %}: <b>{{ item.name }}</b>
+        {% include "yzadmin/form.html" %}
+        <button>OK</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>

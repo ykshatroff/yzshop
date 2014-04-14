@@ -1,0 +1,16 @@
+
+{% load i18n %}
+{% load yzadmin_tags %}
+    <form action="{% admin_url 'category' 'add' %}"
+            class="yzadmin-setup"
+            title="{% trans 'Add category' %}"
+            method="POST">
+        {% if parent %}
+            {% trans 'Parent category' %}: <b>{{ parent.name }}</b>
+        {% else %}
+            {% trans 'The category will be added to top level' %}
+        {% endif %}
+        {% include "yzadmin/form.html" %}
+        <button>{% trans 'OK' %}</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>

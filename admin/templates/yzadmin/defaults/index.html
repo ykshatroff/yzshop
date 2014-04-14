@@ -1,0 +1,15 @@
+{% extends "yzadmin/base.html" %}
+{% load i18n %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block head_script %}
+{% endblock %}
+
+
+{% block section %}model-{{ model_name }} action-index{% endblock %}
+
+{% block content_header_h1 %}
+{{ model_title_plural|capfirst }}
+{% endblock %}

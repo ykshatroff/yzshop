@@ -1,0 +1,11 @@
+{% load yzadmin_tags %}
+{% load i18n %}
+<div id="yzadmin-add">
+    <form action="{% admin_url model_name action %}" method="POST"
+            {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}
+    >
+        {% include "yzadmin/form.html" %}
+        <button>{% trans 'OK' %}</button>
+        <button type="reset" onclick="YzAdmin.closeDialog()">{% trans 'Close' %}</button>
+    </form>
+</div>

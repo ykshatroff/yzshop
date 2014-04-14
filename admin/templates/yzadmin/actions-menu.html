@@ -1,0 +1,21 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+{% block actions_title %}
+    <h3>{{ model_title }}</h3>
+{% endblock %}
+<div class="yzadmin-actions-menu">
+{% block actions %}
+    {% block action_add %}
+    <a class="with-dialog {% if action == 'add' %}current{%endif%}"
+            id="yzadmin-action-add"
+            href="{% admin_url model_name 'add' %}">{% block action_add_title %}{% trans 'Add Item' %}{% endblock %}</a>
+    {% endblock action_add %}
+    {% block action_delete %}
+    {% if item %}
+    <a class="with-dialog {% if action == 'delete' %}current{%endif%}"
+            id="yzadmin-action-delete"
+            href="{% admin_url model_name 'delete' item.id %}">{% block action_delete_title %}{% trans 'Delete Item' %}{% endblock %}</a>
+    {% endif %}
+    {% endblock action_delete %}
+{% endblock actions %}
+</div>

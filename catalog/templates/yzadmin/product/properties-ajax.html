@@ -1,0 +1,67 @@
+{% extends "yzadmin/base-ajax.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% block content %}
+        <form method="POST" action="{% admin_url model_name current_tab.name item.id %}">
+        {% csrf_token %}
+        <h3>{% trans 'Assigned properties' %}</h3>
+        <div class="select-properties">
+        {% if current_properties %}
+            <table>
+            <!--
+                <tr>
+                <th>{% trans 'name' %}</th>
+                <th>{% trans 'remove' %}</th>
+                </tr>
+            -->
+            {% for prop_wrapper in current_properties %}
+                {% with prop=prop_wrapper.property %}
+                <tr>
+                    <td><!-- up-down --></td>
+                    <td><a href="{% admin_url 'property' 'edit' prop.id %}"
+                            >{{ prop }}</a></td>
+                    <td>
+                        {% include "yzadmin/form.html" with form=prop_wrapper.form %}
+                        <div>
+                        {% if not prop.is_multivalue %}{# single value #}
+                            <a href="{% admin_url 'product' 'set_property_value' item.id %}?property={{ prop.id }}"
+                                class="with-dialog">{% trans 'Set value' %}</a>
+                        {% elif XXX_can_add_value %}{# multiple value #}
+                            <a href="{% admin_url 'product' 'add_property_value' item.id %}?property={{ prop.id }}"
+                                class="with-dialog">{% trans 'Add value' %}</a>
+                        {% endif %}
+                        </div>
+                    </td>
+                    <!--
+                    <td><input type="checkbox" name="prop_remove" value="{{ prop.property.id }}" /></td>
+                    -->
+                </tr>
+                {% endwith %}
+            {% endfor %}
+            </table>
+        {% else %}
+            {% trans 'No assigned properties' %}
+        {% endif %}
+        </div>
+        {% if all_properties %}
+        <h3>{% trans 'Choose properties to assign' %}</h3>
+        <div class="all-properties">
+            <table>
+                <!--
+                <tr>
+                <th>{% trans 'name' %}</th>
+                </tr>
+                -->
+            {% for prop_wrapper in all_properties %}
+                <tr>
+                    <td><input type="checkbox" name="add" value="{{ prop_wrapper.property.id }}" /></td>
+                    <td><a href="{% admin_url 'property' 'edit' prop_wrapper.property.id %}">{{ prop_wrapper.property }}</a></td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+        <button>OK</button>
+        <button type="reset">{% trans 'Reset' %}</button>
+        </form>
+{% endblock %}

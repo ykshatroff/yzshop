@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+{% load catalog_tags %}
+    <div id="tab-{{ current_tab.name }}">
+    {% if product_properties %}
+        <table>
+            <tr>
+                <th>{% trans 'property' %}</th>
+                <th>{% trans 'value' %}</th>
+                <th></th>
+            </tr>
+
+        {% for prop, val in product_properties %}
+            <tr>
+                <td>
+                    <a href="{% admin_url 'property' 'edit' prop.id %}">{{ prop }}</a>
+                </td>
+                {% if val %}
+                <td>
+                    {% print_property_value val %}
+                </td>
+                <td>
+                    <a href="{% admin_url model_name 'change_property' item.id %}?property={{ prop.id }}"
+                        class="with-dialog">{% trans 'Change' %}</a>
+                </td>
+                {% else %}
+                <td>
+                    {% trans 'Not assigned' %}
+                </td>
+                <td>
+                    <a href="{% admin_url model_name 'change_property' item.id %}?property={{ prop.id }}"
+                        class="with-dialog">{% trans 'Assign' %}</a>
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        {% trans 'Product has no assigned properties' %}
+    {% endif %}
+        <a href="{% admin_url 'product' 'properties' item.product.id %}">{% trans 'Manage product properties' %}</a>
+    </div>

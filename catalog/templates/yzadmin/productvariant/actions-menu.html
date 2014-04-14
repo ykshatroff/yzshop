@@ -1,0 +1,24 @@
+{% extends "yzadmin/actions-menu.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+
+{% block actions_title %}
+    <h3>{% trans 'Product' %}</h3>
+    <a href="{% admin_url 'product' 'edit' item.product.id %}">{{ item.product }}</a>
+    <br/>
+    <br/>
+    <h3>{{ model_title }}</h3>
+{% endblock %}
+
+{% block action_add %}
+    {% if item %}
+    <a class="with-dialog"
+            id="yzadmin-action-add"
+            href="{% admin_url 'product' 'add_variant' item.product.id %}"
+        >{% block action_add_variant_title %}{% trans 'Add Variant' %}{% endblock %}</a>
+    <a class="with-dialog"
+            id="yzadmin-action-copy"
+            href="{% admin_url model_name 'copy' item.id %}"
+        >{% block action_copy_variant_title %}{% trans 'Copy Variant' %}{% endblock %}</a>
+    {% endif %}
+{% endblock %}

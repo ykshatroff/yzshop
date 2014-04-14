@@ -1,0 +1,37 @@
+{% load i18n %}
+    {% csrf_token %}
+    {% for field in form.hidden_fields %}
+        {{ field }}
+    {% endfor %}
+    {% if form.errors %}
+    <div class="error">
+        {% trans 'The form contains invalid data' %}
+        {% if form.non_field_errors %}
+            {{ form.non_field_errors }}
+        {% endif %}
+    </div>
+    {% endif %}
+
+
+    {% for field in form.visible_fields %}
+    <div id="field-{{ field.name }}"
+        class="field {{ field.css_classes }} {{ field.field.get_class_for_css }}
+        {% if field.field.required %}required{% endif %} ">
+        <div class="label">
+            {{ field.label_tag }}
+        </div>
+        <div class="value">
+            {% if field.errors %}
+            <div class="error">
+                {{ field.errors }}
+            </div>
+            {% endif %}
+            {% if field.help_text %}
+            <div class="help-text">
+                {{ field.help_text }}
+            </div>
+            {% endif %}
+            {{ field }}
+        </div>
+    </div>
+    {% endfor %}

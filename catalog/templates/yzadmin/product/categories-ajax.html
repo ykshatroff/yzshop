@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+    <div id="tab-{{ current_tab.name }}">
+        {% if item.is_variant %}
+        <div class="yzadmin-info">
+            {% trans 'This product is a variant of the following product' %}:
+                <a href="{% admin_url 'product' 'edit' item.parent.id %}">{{ item.parent }}</a>
+        </div>
+        {% endif %}
+        <form method="POST" action="{% admin_url model_name action item.id %}">
+            {% csrf_token %}
+            {% if item.is_variant %}
+                {% include "yzadmin/form.html" %}
+            {% endif %}
+            <div id="cat-0" {% if not categories_override %}style="display:none"{% endif %}
+                class="select-categories field-categories">
+
+                {% for category in categories %}
+                    {% tree_select_node category selected_categories %}
+                {% endfor %}
+            </div>
+            <button>{% trans 'OK' %}</button>
+            <button type="reset">{% trans 'Reset' %}</button>
+        </form>
+    {% if request.is_ajax %}
+        {% include "yzadmin/messages.html" %}
+    {% endif %}
+    </div>

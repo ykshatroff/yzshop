@@ -1,0 +1,17 @@
+{% extends "yzadmin/defaults/add.html" %}
+{% load i18n %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block head_script %}
+{% endblock %}
+
+
+{% block content_left_menu %}
+    {% include "yzadmin/category/tree.html" %}
+{% endblock %}
+
+{% block content %}
+    {% include "yzadmin/category/add-ajax.html" %}
+{% endblock %}

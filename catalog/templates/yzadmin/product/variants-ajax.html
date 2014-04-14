@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+    <div id="tab-{{ current_tab.name }}">
+        {% if item.is_variant %}
+        <div class="yzadmin-info">
+            {% trans 'This product is a variant of the following product' %}:
+                <a href="{% admin_url 'product' 'edit' item.parent.id %}">{{ item.parent }}</a>
+        </div>
+        {% endif %}
+        {% if variants %}
+        <table>
+            <tr>
+                <th>{% trans 'position' %}</th>
+                <th>{% trans 'SKU' %}</th>
+                <th>{% trans 'name' %}</th>
+                <th>{% trans 'active' %}</th>
+                <th>&nbsp;</th>
+            </tr>
+            {% for variant in variants %}
+            <tr>
+                {% if item.id == variant.id %}
+                <!-- current variant not editable -->
+                <td><b>{{ forloop.counter }}</b></td>
+                <td><b>{{ variant.sku }}</b></td>
+                {% else %}
+                <td><a href="{% admin_url 'product' 'edit' variant.id %}"
+                        title="{% trans 'Edit Variant' %}">{{ forloop.counter }}</a></td>
+                <td><a href="{% admin_url 'product' 'edit' variant.id %}"
+                        title="{% trans 'Edit Variant' %}">{{ variant.sku }}</a></td>
+                {% endif %}
+                <td>{{ variant.name }}</td>
+                <td>{{ variant.active|yesno:_("yes,no") }}</td>
+                <td><a href="{% admin_url 'product' 'delete' variant.id %}"
+                    xxtitle="{% trans 'Delete Item' %}"
+                    class="with-dialog"
+                    >X</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    <h3>{% trans 'Add Variant' %}</h3>
+    {% if item.is_variant %}
+        <div>
+        {% trans 'Product' %}: <b>{{ item.parent }}</b>
+        </div>
+        <form action="{% admin_url 'product' 'add_variant' item.parent_id %}"
+    {% else %}
+        <form action="{% admin_url 'product' 'add_variant' item.id %}"
+    {% endif %}
+            class="yzadmin-setup"
+            method="POST">
+        {% csrf_token %}
+        {% include "yzadmin/form.html" %}
+        <button>OK</button>
+        <button type="reset">{% trans 'Reset' %}</button>
+    </form>
+
+    </div>

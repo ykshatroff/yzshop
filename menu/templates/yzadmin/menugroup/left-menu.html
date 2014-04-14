@@ -1,0 +1,13 @@
+{% load yzadmin_tags %}
+{% load yzadmin_menu_tags %}
+{% load i18n %}
+<ul>
+{% for obj in left_menu %}
+    <li><a href="{% admin_url model_name 'edit' obj.id  %}"
+        {% if obj == item %} class="current"{% endif %}
+            >{% if obj.name %}{{ obj.name }}{% else %}{{ obj }}{% endif %}</a></li>
+    {% if obj == item %}
+        {% display_menu_items item.get_items_tree %}
+    {% endif %}
+{% endfor %}
+</ul>

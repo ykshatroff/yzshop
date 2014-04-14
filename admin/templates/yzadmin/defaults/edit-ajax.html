@@ -1,0 +1,16 @@
+{% load yzadmin_tags %}
+{# the current form is available as 'form' #}
+<div id="tab-{{ current_tab.name }}">
+    {% block tab_content %}
+    <form
+            {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}
+            action="{% admin_url model_name current_tab.name item.id %}"
+            method="POST">
+        {% include "yzadmin/form.html" %}
+        <button>OK</button>
+    </form>
+    {% if request.is_ajax %}
+        {% include "yzadmin/messages.html" %}
+    {% endif %}
+    {% endblock %}
+</div>

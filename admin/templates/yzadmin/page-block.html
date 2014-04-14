@@ -1,0 +1,5 @@
+{% load i18n %}
+{% if page %}
+    <h3>{% trans 'Pages' %}</h3>
+    {% include "yzadmin/defaults/page-ajax.html" %}
+{% endif %}

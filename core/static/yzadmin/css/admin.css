@@ -1,0 +1,337 @@
+/**
+ *  URI: {WWW}yzadmin/css/admin.css
+ *
+ */
+* {
+    outline: none;
+}
+
+html, body {
+    background: #eef;
+    color: #335;
+    font: 14px Tahoma,sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+input, select, textarea {
+    border: 1px solid #5080ff;
+    font-size: 14px;
+    padding: 2px;
+}
+input[type=checkbox] {
+    border: 1px solid #5080ff;
+}
+input[type=text] {
+    width: 300px;
+}
+h1, h2, h3 {
+    color: #5080ff;
+}
+a, div .ui-widget-content a {
+    color: #003399;
+}
+
+html .ui-widget {
+    font: 14px Tahoma,sans-serif;
+}
+a:visited, div .ui-widget-content a:visited {
+    color: #0033ff;
+}
+
+a:hover,
+li:hover > a,
+div .ui-widget-content a:hover {
+    color: #008899;
+}
+
+table {
+    border: 1px solid #ccccd2;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 8px 0;
+}
+
+td, th {
+    border: 1px solid #ccccd2;
+    border-collapse: collapse;
+    padding: 4px 6px;
+}
+th {
+    background: #d6d6ff;
+}
+.ajax-loading {
+    background: url(../images/ajax-loader.gif) no-repeat center center;
+}
+#yzadmin-messages {
+    display: none;
+}
+
+.error {
+    background: #fff9f9;
+    border: 1px solid #f33;
+    color: #f33;
+    font-weight: bold;
+    padding: 4px 8px;
+}
+
+.yzadmin-info {
+    background: #f9fff9;
+    border: 1px solid #33a033;
+    color: #33a033;
+    font-weight: bold;
+    margin: 12px 0;
+    padding: 4px 8px;
+}
+
+.yzadmin-header {
+    border-bottom: 1px solid #5080ff;
+    height: 80px;
+/*     margin: 0 0 12px ; */
+    padding: 6px 20px 6px;
+}
+.yzadmin-header .logo {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.yzadmin-header .logo a {
+    background: url(../images/logo6-84x80.png) no-repeat;
+    display: block;
+    float: left;
+    height: 80px;
+    width: 84px;
+}
+.yzadmin-header .username {
+    margin: 0 0 0 100px;
+    padding: 6px 0 0;
+
+}
+.yzadmin-main-menu {
+    background: #d6d6ff;
+    border-bottom: 1px solid #5080ff;
+    height: 40px;
+    padding-left: 104px;
+}
+.yzadmin-main-menu li {
+    cursor: pointer;
+    padding: 4px 16px;
+}
+.yzadmin-main-menu > ul {
+    float: left;
+}
+.yzadmin-main-menu > ul > li {
+    float: left;
+    margin: 8px 0 0;
+    height: 32px;
+    position: relative;
+}
+.yzadmin-main-menu ul ul {
+    background: #d6d6ff;
+    border: 1px solid #5080ff;
+    border-top: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    padding: 6px 12px 12px;
+    top: 32px;
+    z-index: 1000;
+}
+.yzadmin-main-menu ul ul li {
+    white-space: nowrap;
+}
+.yzadmin-main-menu li:hover ul {
+    display: block;
+}
+
+.yzadmin-left-menu {
+    clear: left;
+    float: left;
+    padding: 8px 20px;
+    width: 280px;
+}
+.yzadmin-left-menu > div {
+    margin: 12px 0;
+}
+.yzadmin-left-menu h3 {
+    margin: 0 0 6px;
+}
+.yzadmin-left-menu a.current {
+    font-weight: bold;
+}
+.yzadmin-actions-menu {
+/*    padding-bottom: 20px;*/
+}
+.yzadmin-actions-menu a {
+    display: block;
+    border-left: 3px solid #5080ff;
+    padding: 0 0 0 10px;
+    margin: 8px 0;
+}
+ul.inner,
+.yzadmin-left-menu ul ul {
+    border-left: 2px dotted #5080ff;
+    margin: 4px 0;
+    padding: 0 0 0 12px;
+
+}
+.yzadmin-left-menu li {
+    margin: 4px 0;
+}
+.yzadmin-content {
+    margin: 0 0 0 320px;
+    padding-right: 20px;
+}
+.yzadmin-content h1 {
+    font-size: 18px;
+}
+.yzadmin-footer {
+    border-top: 2px solid #5080ff;
+    clear: both;
+    margin: 20px 0 0;
+    padding: 20px 50px;
+}
+#yzadmin-page-navigation a {
+    padding: 0 4px;
+    text-decoration: none;
+}
+.yzadmin-search {
+    padding: 8px 30px 8px 0;
+}
+.yzadmin-search div {
+
+}
+.yzadmin-search input {
+    width: 100%;
+}
+
+.field {
+    margin: 8px 0;
+}
+
+/* jquery ui overrides
+ * required for correct tabs display
+ */
+body .ui-widget-header {
+/*     border: 0; */
+}
+
+body .ui-helper-clearfix {
+/*     overflow: auto; */
+}
+body .ui-helper-clearfix:after {
+/*     clear: none; */
+}
+body .ui-tabs .ui-tabs-nav li {
+/*     top: -1px; */
+}
+
+/* specific definitions */
+.select-categories {
+    max-width: 400px;
+}
+.select-categories div.node {
+    margin: 4px 0 4px 12px;
+    overflow: auto;
+    position: relative;
+}
+.select-categories a {
+    line-height: 140%;
+}
+.select-categories span.checkbox {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+}
+.yzadmin-two-cols {
+    overflow: auto;
+}
+.yzadmin-two-cols .col {
+    width: 45%;
+    float: right;
+}
+.yzadmin-two-cols .col:first-child {
+    float: left;
+}
+
+
+/* tabs */
+div#item-tabs > div {
+    border: 1px solid #a0b8ff;
+    border-top: 0;
+    padding: 12px;
+}
+ul#yzadmin-tabs {
+    background: #a0b8ff;
+    border-radius: 4px 4px 0 0;
+    overflow: auto;
+    padding: 10px 10px 0 10px;
+}
+ul#yzadmin-tabs li {
+    float: left;
+}
+ul#yzadmin-tabs li a {
+    background: #d6d6ff;
+    border: 1px solid #006;
+    border-bottom: 1px solid #a0b8ff;
+    border-radius: 4px 4px 0 0;
+    display: block;
+    margin-right: 6px;
+    padding: 8px 20px;
+    text-decoration: none;
+}
+ul#yzadmin-tabs li a.current {
+    background: #eeeeff;
+    border-bottom: 1px solid #eeeeff;
+}
+
+/* forms customization */
+input[type=text].yzadmin-calendar,
+.DateField input[type=text] {
+    text-align: right;
+    width: 160px;
+}
+input[type=text].int,
+.IntegerField input[type=text] {
+    text-align: right;
+    width: 80px;
+}
+input[type=text].decimal,
+.DecimalField input[type=text] {
+    text-align: right;
+    width: 120px;
+}
+
+
+
+textarea.yzadmin-tinymce {
+    height: 300px;
+    width: 90%;
+}
+.xxxfield {
+    margin: 18px 0 0;
+    padding: 6px 12px;
+    border: 1px solid #ccccd2;
+}
+.xxxfield .label {
+    margin: -1em 0 4px 0;
+}
+.xxxfield .label label {
+    padding: 0 6px 0;
+    background: #eeeeff;
+}
+.field .help-text {
+    font-style: italic;
+/*     margin: 6px 0; */
+/*     max-width: 300px; */
+}
+

@@ -1,0 +1,13 @@
+{% extends "yzadmin/product/left-menu.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+
+{% if 0 %}
+    <ul>
+    {% for variant in item.product.variants.all %}
+        <li><a
+        {% if variant.id == item.id %} class="current"{% endif %}
+        href="{% admin_url model_name 'edit' variant.id %}">{{ variant }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}

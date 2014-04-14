@@ -1,0 +1,273 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-03 22:49+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: forms.py:39 models.py:41 models.py:132
+msgid "delivery method"
+msgstr "способ доставки"
+
+#: forms.py:44 models.py:53 models.py:138
+msgid "payment method"
+msgstr "способ оплаты"
+
+#: models.py:18 templates/yzadmin/order/products-ajax.html:11
+msgid "name"
+msgstr "название"
+
+#: models.py:19
+msgid "slug"
+msgstr "ссылка"
+
+#: models.py:20
+msgid "this field is required for handlers to work"
+msgstr "поле необходимо для обработки заказа"
+
+#: models.py:21
+msgid "cost"
+msgstr "стоимость"
+
+#: models.py:22
+msgid "position"
+msgstr "позиция"
+
+#: models.py:23
+msgid "active"
+msgstr "активен"
+
+#: models.py:24
+msgid "description"
+msgstr "описание"
+
+#: models.py:25
+msgid "address required"
+msgstr "требуется ли адрес"
+
+#: models.py:26
+msgid "customer's address is required to use the service"
+msgstr "для оказания услуги требуется адрес клиента"
+
+#: models.py:42
+msgid "delivery methods"
+msgstr "способы доставки"
+
+#: models.py:49
+msgid "prepayment"
+msgstr "предоплата"
+
+#: models.py:50
+msgid "whether this type of payment is prepayment"
+msgstr "является ли данный вид платежа предоплатой"
+
+#: models.py:54
+msgid "payment methods"
+msgstr "способы оплаты"
+
+#: models.py:110 templates/yzadmin/order/index.html:9
+msgid "new"
+msgstr "новый"
+
+#: models.py:111 templates/yzadmin/order/index.html:10
+msgid "paid"
+msgstr "оплачен"
+
+#: models.py:112
+msgid "sent"
+msgstr "отправлен"
+
+#: models.py:113 templates/yzadmin/order/index.html:11
+msgid "closed"
+msgstr "закрыт"
+
+#: models.py:114 templates/yzadmin/order/index.html:12
+msgid "cancelled"
+msgstr "отменён"
+
+#: models.py:117
+msgid "number"
+msgstr "номер"
+
+#: models.py:118
+msgid "date submitted"
+msgstr "дата подачи"
+
+#: models.py:120
+msgid "date paid"
+msgstr "дата оплаты"
+
+#: models.py:121
+msgid "date sent"
+msgstr "дата отправки"
+
+#: models.py:122
+msgid "date cancelled"
+msgstr "дата отмены"
+
+#: models.py:123
+msgid "date closed"
+msgstr "дата закрытия"
+
+#: models.py:124 yzadmin.py:75 templates/yzadmin/order/status-ajax.html:11
+msgid "status"
+msgstr "статус"
+
+#: models.py:128
+msgid "order value"
+msgstr "сумма заказа"
+
+#: models.py:128
+msgid "the total sum of prices of products"
+msgstr "сумма стоимостей товаров"
+
+#: models.py:129
+msgid "order amount to pay"
+msgstr "итого к оплате"
+
+#: models.py:130
+msgid "the amount to pay, incl. discounts and service costs"
+msgstr "итого к оплате, вкл. скидки и стоимость услуг"
+
+#: models.py:135
+msgid "delivery method name"
+msgstr "способ доставки"
+
+#: models.py:136
+msgid "delivery cost"
+msgstr "стоимость доставки"
+
+#: models.py:141
+msgid "payment method name"
+msgstr "способ оплаты"
+
+#: models.py:142
+msgid "payment cost"
+msgstr "стоимость оплаты"
+
+#: models.py:146
+msgid "customer"
+msgstr "клиент"
+
+#: models.py:149
+msgid "customer's name"
+msgstr "имя клиента"
+
+#: models.py:150
+msgid "customer's company name"
+msgstr "организация клиента"
+
+#: models.py:151
+msgid "customer's email"
+msgstr "email клиента"
+
+#: models.py:152
+msgid "customer's phone"
+msgstr "телефон клиента"
+
+#: models.py:155
+msgid "customer address"
+msgstr "адрес клиента"
+
+#: models.py:158
+msgid "customer's message"
+msgstr "сообещение от клиента"
+
+#: models.py:166
+msgid "order"
+msgstr "заказ"
+
+#: models.py:167
+msgid "orders"
+msgstr "заказы"
+
+#: models.py:365
+msgid "product name"
+msgstr "название товара"
+
+#: models.py:367 templates/yzadmin/order/products-ajax.html:12
+msgid "variant name"
+msgstr "название варианта товара"
+
+#: models.py:368
+msgid "SKU"
+msgstr "артикул"
+
+#: models.py:369 templates/yzadmin/order/products-ajax.html:14
+msgid "quantity"
+msgstr "количество"
+
+#: models.py:370
+msgid "product price"
+msgstr "цена товара"
+
+#: models.py:374 models.py:427
+msgid "order item"
+msgstr "заказанный товар"
+
+#: models.py:375
+msgid "order items"
+msgstr "заказанные товары"
+
+#: models.py:428
+msgid "property"
+msgstr "свойство"
+
+#: yzadmin.py:73
+msgid "Data"
+msgstr "Данные"
+
+#: yzadmin.py:74
+msgid "Products"
+msgstr "Товары"
+
+#: templates/yzadmin/order/index.html:7
+msgid "Parameter"
+msgstr "параметр"
+
+#: templates/yzadmin/order/index.html:8
+msgid "all"
+msgstr "все"
+
+#: templates/yzadmin/order/index.html:15
+msgid "Total number of orders"
+msgstr "Кол-во заказов"
+
+#: templates/yzadmin/order/index.html:23
+msgid "Total sum of orders"
+msgstr "Сумма заказов"
+
+#: templates/yzadmin/order/products-ajax.html:10
+msgid "sku"
+msgstr "артикул"
+
+#: templates/yzadmin/order/products-ajax.html:13
+msgid "price"
+msgstr "цена"
+
+#: templates/yzadmin/order/products-ajax.html:15
+#: templates/yzadmin/order/products-ajax.html:29
+msgid "total"
+msgstr "итого"
+
+#: templates/yzadmin/order/products-ajax.html:34
+msgid "No products"
+msgstr "нет товаров"
+
+#: templates/yzadmin/order/status-ajax.html:25
+msgid "set status"
+msgstr "установить статус"

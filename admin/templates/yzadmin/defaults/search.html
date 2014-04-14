@@ -1,0 +1,37 @@
+{% extends "yzadmin/base.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+
+{% block title %}{% trans 'Search' %} : YzAdmin : {{ SHOP.get_meta_title }}{% endblock %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block head_script %}
+{% endblock %}
+
+{% block content_header_h1 %}
+{% trans 'Search Results' %}: {{ model_title|capfirst }}
+{% endblock %}
+
+{% block content %}
+    {% block search_form %}
+        {% include "yzadmin/defaults/search_form.html" %}
+    {% endblock search_form %}
+
+    {% block search_term %}
+        <div class="yzadmin-search-term">
+        {% trans 'You looked for' %}: <b>{{ term }}</b>
+        </div>
+    {% endblock search_term %}
+    {% block search_results %}
+        <div class="yzadmin-search-results">
+            {# Print links to found items #}
+            <ul>
+            {% for obj in found_items %}
+                <li><a href="{% admin_url model_name 'edit' obj.id %}">{{ obj }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endblock search_results %}
+{% endblock content %}

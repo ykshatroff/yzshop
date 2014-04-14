@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+<a href="{% admin_url 'product' 'category_toggle' item.id %}?cat_id={{ category.id }}"
+    {% if is_current %}
+    title="{% trans 'click to deselect' %}" class="choice on"
+    {% else %}
+    title="{% trans 'click to select' %}" class="choice off"
+    {% endif %}
+    >{% if is_current %} YES {% else %} NO {% endif %}</a>

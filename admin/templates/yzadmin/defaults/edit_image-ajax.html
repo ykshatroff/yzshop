@@ -1,0 +1,15 @@
+{% load yzadmin_tags %}
+{% load i18n %}
+{% load thumbnail %}
+<div id="dialog-form">
+    <form action="{% admin_url model_name 'edit_image' item.id %}?image={{ image.id }}"
+            method="POST">
+        {% csrf_token %}
+        <div style="text-align: center"><img
+                            src="{% thumbnail image.image 160x120 %}"
+                            alt="" title="" /></div>
+        {% include "yzadmin/form.html" %}
+        <button>{% trans 'OK' %}</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>
+</div>

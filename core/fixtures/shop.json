@@ -1,0 +1,20 @@
+[{"pk": 1, "model": "core.shop", "fields":
+    {
+        "name": "Shop Name",
+        "shop_owner": "Shop Owner",
+        "from_email": "from@YOURMAIL.ru",
+        "notification_emails": "yks-uno@ya.ru",
+        "image": "",
+        "google_analytics_id": "",
+        "ga_ecommerce_tracking": false,
+        "ga_site_tracking": false,
+        "meta_description": "",
+        "meta_keywords": "",
+        "meta_title": "<name>",
+        "description": "Some description",
+        "default_country": 643,
+        "shipping_countries": [643],
+        "static_block": null,
+        "default_currency": 643
+    }
+}]

@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load yzadmin_tags %}
+<div id="tab-{{ current_tab.name }}">
+{% block content %}
+{% endblock %}
+{% if request.is_ajax %}
+    {% include "yzadmin/messages.html" %}
+{% endif %}
+</div>

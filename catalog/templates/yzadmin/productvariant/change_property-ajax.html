@@ -1,0 +1,18 @@
+
+{% load i18n %}
+{% load yzadmin_tags %}
+<div id="frm-{{ model_name }}-add">
+    <form action="{% admin_url 'productvariant' 'change_property' item.id %}?property={{ property.id }}"
+            class="n-yzadmin-setup"
+            method="POST">
+        {% trans 'Product' %}: <i>{{ item.product }}</i><br/>
+        {% trans 'Variant' %}: <i>{{ item }}</i><br/>
+        {% trans 'Property' %}: <i>{{ property }}<br/>
+        {% for form in forms %}
+            {% include "yzadmin/form.html" %}
+        {% endfor %}
+
+        <button>OK</button>
+        <button type="reset" onclick="$('#dialog').dialog('close')">{% trans 'Close' %}</button>
+    </form>
+</div>

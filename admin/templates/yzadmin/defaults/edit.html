@@ -1,0 +1,44 @@
+{% extends "yzadmin/base.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+
+{% block title %}{{ item }} : YzAdmin : {{ SHOP.get_meta_title }}{% endblock %}
+
+{% block head_styles %}
+{% endblock %}
+
+{% block head_script %}
+{% endblock %}
+
+{% block content_header_h1 %}
+{{ model_title|capfirst }} #{{ item.id }}: {{ item }}
+{% endblock %}
+
+{% block content %}
+    {% if tabs %}
+    <div id="item-tabs">
+        <ul id="yzadmin-tabs">
+        {% for tab in tabs %}
+            {% if not tab.disabled %}
+            <li><a id="tab-title-{{ tab.name }}"
+                    href="{% admin_url model_name tab.name item.id %}"
+            {% if tab.name == current_tab.name %}
+                    class="current" name="tab-{{ forloop.counter }}"
+            {% endif %}
+                >{{ tab.title|capfirst }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        {# ensure the form looks exactly like the AJAX form #}
+        {% block active_form %}
+            {% include "yzadmin/defaults/edit-ajax.html" %}
+        {% endblock %}
+    </div>
+    {% else %}
+            <form {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}
+                action="" method="POST">
+                {% include "yzadmin/form.html" %}
+                <button>OK</button>
+            </form>
+    {% endif %}
+{% endblock %}

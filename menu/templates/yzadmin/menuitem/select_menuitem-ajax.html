@@ -1,0 +1,29 @@
+{% load yzadmin_tags %}
+{% load yz_menu_tags %}
+{% load i18n %}
+<div id="yzadmin-select-menuitem">
+{#    <h2>{% trans 'Select menu item' %}</h2>#}
+    <a href="#0">{{ menugroup }}</a>
+{#    {% for node in menugroup.get_items_tree.children %}#}
+{#        {% select_menu_items node menuitem %}#}
+{#    {% endfor %}#}
+    {% with mg=menugroup|menu_items:None|menu_tree:False %}
+        {% display_menu_tree mg menuitem 'yzadmin/menuitem/select-menuitem-entry.html' %}
+    {% endwith %}
+</div>
+<script type="text/javascript">
+    $(document).one("yz-dialog-loaded", function() {
+        $("#yzadmin-select-menuitem a").click(function() {
+            try {
+                var id = $(this).attr("href").match(/\d+$/)[0];
+            } catch (ex) {
+                var id = "";
+            }
+            var fieldDiv = $("#field-parent");
+            fieldDiv.find("input").val(id);
+            fieldDiv.find("a").text($(this).text());
+            YzAdmin.closeDialog();
+            return false;
+        })
+    })
+</script>

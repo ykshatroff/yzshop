@@ -1,0 +1,23 @@
+{% extends "yzadmin/defaults/edit-ajax.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+
+{% block tab_content %}
+    {% if item.content_object %}
+    <div style="margin-bottom: 12px">
+        <h3>{% trans 'Link' %}</h3>
+        <a href="{% admin_url item.content_type.model %}"
+            title="{% trans item.content_type.name %}">{% trans item.content_type.name %}</a>
+        &raquo; <a
+        href="{% admin_url item.content_type.model 'edit' item.object_id %}"
+        >{{ item.content_object }}</a>
+        <h3>{% trans 'Data' %}</h3>
+    </div>
+    {% endif %}
+    {{ block.super }}
+    <script>
+    $(function() {
+
+    })
+    </script>
+{% endblock tab_content %}

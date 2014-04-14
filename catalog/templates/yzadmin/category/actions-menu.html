@@ -1,0 +1,12 @@
+{% extends "yzadmin/actions-menu.html" %}
+{% load i18n %}
+{% load yzadmin_tags %}
+{% block action_add %}
+    {{ block.super }}
+    {% if item %}
+    <a class="with-dialog"
+            id="yzadmin-action-add-subcategory"
+            href="{% admin_url model_name 'add_child' item.id %}"
+        >{% block action_add_subcategory_title %}{% trans 'Add Subcategory' %}{% endblock %}</a>
+    {% endif %}
+{% endblock %}

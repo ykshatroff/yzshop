@@ -1,0 +1,1 @@
+YzShop is an e-Commerce application based on Django, inspired by Django-LFS.
